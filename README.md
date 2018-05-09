@@ -159,8 +159,8 @@ Having the access code, your application should obtain access token, in order to
 { 
     "action": "grantToken",
     "payload": {
-        "userId": 1234567,   // subjects telegram userId
-        "authCode": "12345"  // authorization code, entered by user
+        "userId": 1234567,  // subjects telegram userId
+        "authCode": "12345" // authorization code, entered by user
     }
 }
 ```
@@ -172,7 +172,7 @@ Having the access code, your application should obtain access token, in order to
     "action": "grantToken",
     "result": "Ok", 
     "payload": {
-        "userId": 1234567,  // telegram user id
+        "userId": 1234567, // telegram user id
         "id" :"53f3e27a124e01dcdd77de45995bf0db" // in-game user id
         "token": "abcdefgh12345768", // access token to be used further
     }
@@ -184,13 +184,13 @@ _Sends request to broaden tokens operations set to user_
 
 In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user. 
 
-NB: Do not spam with this request or sanctions will follow.
+**NB:** Do not spam with this request or sanctions will follow.
 ```javascript
 {  
-  "token": "abcdefgh12345768",  // target user access token
+  "token": "abcdefgh12345768", // target user access token
   "action": "authAdditionalOperation",  
   "payload": {  
-    "operation": "GetUserProfile"  // requested operation
+    "operation": "GetUserProfile" // requested operation
    }  
 }
 ```
@@ -210,10 +210,10 @@ NB: Do not spam with this request or sanctions will follow.
 Completes the `authAdditionalOperation` action.
 ```javascript
 {  
-  "token": "abcdefgh12345768",  // target user access token
+  "token": "abcdefgh12345768", // target user access token
   "action": "grantAdditionalOperation",  
   "payload": {  
-    "requestId": "baa5u2tk324isodm85og",  // requestId of parent authAdditionalOperation 
+    "requestId": "baa5u2tk324isodm85og", // requestId of parent authAdditionalOperation 
     "authCode": "707666" // code supplied by user for this requestId  
    }  
 }
@@ -234,8 +234,9 @@ _Sends authorization request to user with confirmation code in it._
 
 After the authorizePayment command is issued the user will receive forementioned confirmation code which one should pass to the application in order to confirm his willing to transfer the gold/gold pouches to application's account. 
 
-NB: For now the only possible currency is `pouches`
-NB2: In case of payments with gold pouches the application balance will be debited with 100 gold per pouch 
+**NB:** For now the only possible currency is `pouches`
+
+**NB2:** In case of payments with gold pouches the application balance will be debited with 100 gold per pouch 
 ```javascript
 // outbound queue
 {
@@ -307,9 +308,9 @@ _Previously, transfers held an amount of gold from users account to application'
 ### payout
 _Transfers of a given amount of gold (or pouches) from the application's balance to users account._
 
-NB: The message will be sent in HTML parsing mode, in case of bad formatting the user will not receive any message at all. Pay attention.
-NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be blocked.
+**NB:** The message will be sent in HTML parsing mode, in case of bad formatting the user will not receive any message at all. Pay attention.
 
+**NB2:** Do not abuse. Do not send links/spam/scam, otherwise your account will be blocked.
 ```javascript
 // outbound queue
 {  
@@ -360,7 +361,7 @@ Good for testing purposes.
 ### requestProfile
 _Request brief user profile information_
 
-NB: Requires `GetUserProfile` operation to be allowed for token
+**NB:** Requires `GetUserProfile` operation to be allowed for token
 ```javascript
 {  
   "token": "abcdef12312341234", // access token
@@ -394,7 +395,7 @@ NB: Requires `GetUserProfile` operation to be allowed for token
 ### requestStock
 _Request users stock information_
 
-NB: Requires `GetStock` operation to be allowed for token
+**NB:** Requires `GetStock` operation to be allowed for token
 ```javascript
 {  
   "token": "1c5c036f2b851a8a7ac9ed485295cf86",  

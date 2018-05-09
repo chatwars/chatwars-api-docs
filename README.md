@@ -1,11 +1,16 @@
+---
+title: Chat Wars API Documentation
+layout: post
+---
+
 # CW API v0.5
 
-## What is new
+## [What is new](#changes)
 _v0.5_
 - yellow_pages exchange 
 - extended user profile info
 
-## Abstract
+## [Abstract](#abstract)
 Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with  an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i` (for the testing purpose there will be `dices_to` and `dices_ti` queues respectively)
 
 The connection url will be: `amqps://dices:[hidden]@api.chatwars.me:5673/`
@@ -17,8 +22,8 @@ For now all queues are limited in size by 1Mb, with discard-oldest policy.
 
 Please note, that at this moment, API is highly unstable. 
 
-## Fan-out Exchange Routing Keys
-### deals
+## [Fan-out Exchange Routing Keys](#routing_keys)
+### [deals](#deals)
 The confirmed deals are published to the public exchange with the name `deals`.
 ```javascript
 {
@@ -34,7 +39,7 @@ The confirmed deals are published to the public exchange with the name `deals`.
 }
 ```
 
-### offers
+### [offers](#offers)
 New 'want to sell' offers are published to public exchange with the name `offers` as soon as they come online
 ```javascript
 {
@@ -47,7 +52,7 @@ New 'want to sell' offers are published to public exchange with the name `offers
 }
 ```
 
-### sex_digest
+### [sex_digest](#sex_digest)
 Top 10, sorted by price, offers on exchange. Posted periodically (approx. every 5 minutes).
 ```javascript
 [
@@ -85,7 +90,7 @@ Top 10, sorted by price, offers on exchange. Posted periodically (approx. every 
 ]
 ```
 
-### yellow_pages
+### [yellow_pages](#yellow_pages)
 List of all published and open shops with all of their offers and prices (approx. every 5 minutes).
 ```javascript
 [
@@ -122,8 +127,8 @@ List of all published and open shops with all of their offers and prices (approx
 ]
 ```
 
-## Message Types
-### createAuthCode
+## [Message Types](#types)
+### [createAuthCode](#createAuthCode)
 _Access request from your application to the user._
 
 After this command is issued, game bot will send a notification to the user containing authorization code. If one agrees to grant you access, it will pass this code to your application. 
@@ -150,7 +155,7 @@ In case of a success, your application will get following message.
 }
 ```
 
-### grantToken
+### [grantToken](#grantToken)
 _Exchange auth code for access token._
 
 Having the access code, your application should obtain access token, in order to work with most of the API methods. As of now token lifetime is unlimited.
@@ -179,7 +184,7 @@ Having the access code, your application should obtain access token, in order to
 }
 ```
 
-### authAdditionalOperation
+### [authAdditionalOperation](#authAdditionalOperation)
 _Sends request to broaden tokens operations set to user_
 
 In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user. 
@@ -206,7 +211,7 @@ In case your other action failed with `Forbidden` result, your application may f
 
 ```
 
-### grantAdditionalOperation
+### [grantAdditionalOperation](#grantAdditionalOperation)
 Completes the `authAdditionalOperation` action.
 ```javascript
 {  
@@ -229,7 +234,7 @@ Completes the `authAdditionalOperation` action.
 }
 ```
 
-### authorizePayment
+### [authorizePayment](#authorizePayment)
 _Sends authorization request to user with confirmation code in it._
 
 After the authorizePayment command is issued the user will receive forementioned confirmation code which one should pass to the application in order to confirm his willing to transfer the gold/gold pouches to application's account. 
@@ -269,7 +274,7 @@ After the authorizePayment command is issued the user will receive forementioned
 
 ```
 
-### pay
+### [pay](#pay)
 _Previously, transfers held an amount of gold from users account to application's balance._
 ```javascript
 // outbound queue
@@ -337,7 +342,7 @@ _Transfers of a given amount of gold (or pouches) from the application's balance
 }
 ```
 
-### getInfo
+### [getInfo](#getInfo)
 _Request current info about your application. E.g. balance, limits, status._
 
 Good for testing purposes. 
@@ -358,7 +363,7 @@ Good for testing purposes.
 }
 ```
 
-### requestProfile
+### [requestProfile](#requestProfile)
 _Request brief user profile information_
 
 **NB:** Requires `GetUserProfile` operation to be allowed for token
@@ -392,7 +397,7 @@ _Request brief user profile information_
 }
 ```
 
-### requestStock
+### [requestStock](#requestStock)
 _Request users stock information_
 
 **NB:** Requires `GetStock` operation to be allowed for token
@@ -432,7 +437,7 @@ _Request users stock information_
 }
 ```
 
-## Results
+## [Results](#results)
 Possible results are:
 * `Ok` - Well, everything is Ok
 * `BadAmount` - Amount is either less than or equal to zero

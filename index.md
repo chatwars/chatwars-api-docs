@@ -1,9 +1,17 @@
 # CW API v0.5
 
-## What is new
+## Latest changes
 _v0.5_
-- yellow_pages exchange 
-- extended user profile info
+- `yellow_pages` exchange
+- Extended user profile info
+_v0.4_
+- Top 5 offers digest, updated every N minutes
+- Actions for user operations (read profile, stock)
+- Grants
+_v0.3.1_
+- "OK" response from now is "Ok"
+_v0.3_
+- Initial release
 
 ## Abstract
 Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with  an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i` (for the testing purpose there will be `dices_to` and `dices_ti` queues respectively)

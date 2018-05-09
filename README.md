@@ -165,7 +165,7 @@ Having the access code, your application should obtain access token, in order to
 }
 ```
 
-```javascript=
+```json
 // inbound queue
 { 
     "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
@@ -179,15 +179,13 @@ Having the access code, your application should obtain access token, in order to
 }
 ```
 
-authAdditionalOperation
------------------------
+### authAdditionalOperation
 _Sends request to broaden tokens operations set to user_
 
 In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user. 
 
 NB: Do not spam with this request or sanctions will follow.
-
-```javascript=
+```json
 {  
   "token": "abcdefgh12345768",  // target user access token
   "action": "authAdditionalOperation",  
@@ -196,7 +194,7 @@ NB: Do not spam with this request or sanctions will follow.
    }  
 }
 ```
-```javascript=
+```json
 {  
   "uuid": "baa5u2tk324isodm85og",  
   "result": "Ok",  
@@ -208,12 +206,9 @@ NB: Do not spam with this request or sanctions will follow.
 
 ```
 
-grantAdditionalOperation
-------------------------
-Completes the `authAdditionalOperation` action 
-
-
-```javascript=
+### grantAdditionalOperation
+Completes the `authAdditionalOperation` action.
+```json
 {  
   "token": "abcdefgh12345768",  // target user access token
   "action": "grantAdditionalOperation",  
@@ -223,7 +218,7 @@ Completes the `authAdditionalOperation` action
    }  
 }
 ```
-```javascript=
+```json
 {  
   "action": "grantAdditionalOperation",  
   "result": "Ok",  
@@ -232,21 +227,16 @@ Completes the `authAdditionalOperation` action
     "userId": 1234567  
    }  
 }
-
 ```
 
-authorizePayment
-----------------
+### authorizePayment
 _Sends authorization request to user with confirmation code in it._
 
 After the authorizePayment command is issued the user will receive forementioned confirmation code which one should pass to the application in order to confirm his willing to transfer the gold/gold pouches to application's account. 
 
-
-NB: For now the only possible currency is`pouches`
+NB: For now the only possible currency is `pouches`
 NB2: In case of payments with gold pouches the application balance will be debited with 100 gold per pouch 
-
-
-```javascript= 
+```json
 // outbound queue
 {
   "token": "abcdef12312341234", // access token
@@ -259,8 +249,7 @@ NB2: In case of payments with gold pouches the application balance will be debit
   }
 }
 ```
-
-```javascript=
+```json
 // inbound queue
 {  
   "uuid" : "b9qvvgtk324j2d8gdqjg", // request correlationId  
@@ -279,13 +268,9 @@ NB2: In case of payments with gold pouches the application balance will be debit
 
 ```
 
-
-
-pay
----
+### pay
 _Previously, transfers held an amount of gold from users account to application's balance._
-
-```javascript=
+```json
 // outbound queue
 {
   "token": "abcdef12312341234", // access token
@@ -299,7 +284,7 @@ _Previously, transfers held an amount of gold from users account to application'
   }
 }
 ```
-```javascript=
+```json
 // inbound queue
 {  
   "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId  
@@ -314,20 +299,18 @@ _Previously, transfers held an amount of gold from users account to application'
       "gold": 496 // the application balance amount will be debited with    
   },  
     "userId": 12345678 // subjects userId  
-   }  
+  }  
 }
-
 ```
 
 
-payout
-------
+### payout
 _Transfers of a given amount of gold (or pouches) from the application's balance to users account._
 
 NB: The message will be sent in HTML parsing mode, in case of bad formatting the user will not receive any message at all. Pay attention.
 NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be blocked.
 
-```javascript=
+```json
 // outbound queue
 {  
   "token": "abcdef12312341234",  
@@ -340,10 +323,8 @@ NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be b
     "message": "You have won 500💰" // arbitrary message, limit - 100 symbols  
    }  
 }
-
 ```
-
-```javascript=
+```json
 // inbound queue
 {
   "uuid" : "b9qvvgtk324j2d8gdqjg",    
@@ -355,21 +336,17 @@ NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be b
 }
 ```
 
-
-getInfo
--------
+### getInfo
 _Request current info about your application. E.g. balance, limits, status._
 
 Good for testing purposes. 
-
-```javascript=
+```json
 // outbound queue
 {
     "action" : "getInfo"
 }
 ```
-
-```javascript=
+```json
 // inbound queue
 {
     "action" : "getInfo",
@@ -380,19 +357,17 @@ Good for testing purposes.
 }
 ```
 
-requestProfile
---------------
+### requestProfile
 _Request brief user profile information_
 
 NB: Requires `GetUserProfile` operation to be allowed for token
-
-```javascript=
+```json
 {  
-  "token": "abcdef12312341234",  // access token
+  "token": "abcdef12312341234", // access token
   "action": "requestProfile"  
 }
 ```
-```javascript=
+```json
 {  
   "action": "requestProfile",  
   "result": "Ok",  
@@ -415,21 +390,18 @@ NB: Requires `GetUserProfile` operation to be allowed for token
    }  
 }
 ```
-requestStock
-------------
+
+### requestStock
 _Request users stock information_
 
 NB: Requires `GetStock` operation to be allowed for token
-
-
-```javascript=
+```json
 {  
   "token": "1c5c036f2b851a8a7ac9ed485295cf86",  
   "action": "requestStock"  
 }
 ```
-
-```javascript=
+```json
 {  
   "action": "requestStock",  
   "result": "Ok",  
@@ -459,10 +431,7 @@ NB: Requires `GetStock` operation to be allowed for token
 }
 ```
 
-
-Results
-=======
-
+## Results
 Possible results are:
 * `Ok` - Well, everything is Ok
 * `BadAmount` - Amount is either less than or equal to zero
@@ -476,4 +445,4 @@ Possible results are:
 * `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong
 * `InsufficientFunds` - the player or application balance is insufficient
 * `InvalidToken` - no such token, might be revoked?
-* `Forbidden` - Your app has no rights to execute this action with this token. Payload will contain `requiredOperation` field. We encourage you to use this field in following `authAdditionalOperation`, instead of enumerating existing ones.
+* `Forbidden` - Your app has no rights to execute this action with this token. Payload will contain `requiredOperation` field. We encourage you to use this field in following `authAdditionalOperation`, instead of enumerating existing ones

@@ -20,7 +20,7 @@ Please note, that at this moment, API is highly unstable.
 ## Fan-out Exchange Routing Keys
 ### deals
 The confirmed deals are published to the public exchange with the name `deals`.
-```json
+```javascript
 {
   "sellerId": "53f3e27a124e01dcdd77de45995bf0db", // ingame userId, obtained with token
   "sellerCastle": "🦌",
@@ -36,7 +36,7 @@ The confirmed deals are published to the public exchange with the name `deals`.
 
 ### offers
 New 'want to sell' offers are published to public exchange with the name `offers` as soon as they come online
-```json
+```javascript
 {
   "sellerId": "53f3e27a124e01dcdd77de45995bf0db",
   "sellerCastle": "🦌",
@@ -49,7 +49,7 @@ New 'want to sell' offers are published to public exchange with the name `offers
 
 ### sex_digest
 Top 10, sorted by price, offers on exchange. Posted periodically (approx. every 5 minutes).
-```json
+```javascript
 [
   {
     "name": "Bone powder",
@@ -87,7 +87,7 @@ Top 10, sorted by price, offers on exchange. Posted periodically (approx. every 
 
 ### yellow_pages
 List of all published and open shops with all of their offers and prices (approx. every 5 minutes).
-```json
+```javascript
 [
   {
     "link": "UQ5DX",
@@ -127,7 +127,7 @@ List of all published and open shops with all of their offers and prices (approx
 _Access request from your application to the user._
 
 After this command is issued, game bot will send a notification to the user containing authorization code. If one agrees to grant you access, it will pass this code to your application. 
-```json
+```javascript
 // outbound queue
 { 
     "action": "createAuthCode", 
@@ -138,7 +138,7 @@ After this command is issued, game bot will send a notification to the user cont
 ```
 
 In case of a success, your application will get following message.
-```json
+```javascript
 // inbound queue
 { 
     "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
@@ -154,7 +154,7 @@ In case of a success, your application will get following message.
 _Exchange auth code for access token._
 
 Having the access code, your application should obtain access token, in order to work with most of the API methods. As of now token lifetime is unlimited.
-```json
+```javascript
 // outbound queue
 { 
     "action": "grantToken",
@@ -165,7 +165,7 @@ Having the access code, your application should obtain access token, in order to
 }
 ```
 
-```json
+```javascript
 // inbound queue
 { 
     "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
@@ -185,7 +185,7 @@ _Sends request to broaden tokens operations set to user_
 In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user. 
 
 NB: Do not spam with this request or sanctions will follow.
-```json
+```javascript
 {  
   "token": "abcdefgh12345768",  // target user access token
   "action": "authAdditionalOperation",  
@@ -194,7 +194,7 @@ NB: Do not spam with this request or sanctions will follow.
    }  
 }
 ```
-```json
+```javascript
 {  
   "uuid": "baa5u2tk324isodm85og",  
   "result": "Ok",  
@@ -208,7 +208,7 @@ NB: Do not spam with this request or sanctions will follow.
 
 ### grantAdditionalOperation
 Completes the `authAdditionalOperation` action.
-```json
+```javascript
 {  
   "token": "abcdefgh12345768",  // target user access token
   "action": "grantAdditionalOperation",  
@@ -218,7 +218,7 @@ Completes the `authAdditionalOperation` action.
    }  
 }
 ```
-```json
+```javascript
 {  
   "action": "grantAdditionalOperation",  
   "result": "Ok",  
@@ -236,7 +236,7 @@ After the authorizePayment command is issued the user will receive forementioned
 
 NB: For now the only possible currency is `pouches`
 NB2: In case of payments with gold pouches the application balance will be debited with 100 gold per pouch 
-```json
+```javascript
 // outbound queue
 {
   "token": "abcdef12312341234", // access token
@@ -249,7 +249,7 @@ NB2: In case of payments with gold pouches the application balance will be debit
   }
 }
 ```
-```json
+```javascript
 // inbound queue
 {  
   "uuid" : "b9qvvgtk324j2d8gdqjg", // request correlationId  
@@ -270,7 +270,7 @@ NB2: In case of payments with gold pouches the application balance will be debit
 
 ### pay
 _Previously, transfers held an amount of gold from users account to application's balance._
-```json
+```javascript
 // outbound queue
 {
   "token": "abcdef12312341234", // access token
@@ -284,7 +284,7 @@ _Previously, transfers held an amount of gold from users account to application'
   }
 }
 ```
-```json
+```javascript
 // inbound queue
 {  
   "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId  
@@ -310,7 +310,7 @@ _Transfers of a given amount of gold (or pouches) from the application's balance
 NB: The message will be sent in HTML parsing mode, in case of bad formatting the user will not receive any message at all. Pay attention.
 NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be blocked.
 
-```json
+```javascript
 // outbound queue
 {  
   "token": "abcdef12312341234",  
@@ -324,7 +324,7 @@ NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be b
    }  
 }
 ```
-```json
+```javascript
 // inbound queue
 {
   "uuid" : "b9qvvgtk324j2d8gdqjg",    
@@ -340,13 +340,13 @@ NB2: Do not abuse. Do not send links/spam/scam, otherwise your account will be b
 _Request current info about your application. E.g. balance, limits, status._
 
 Good for testing purposes. 
-```json
+```javascript
 // outbound queue
 {
     "action" : "getInfo"
 }
 ```
-```json
+```javascript
 // inbound queue
 {
     "action" : "getInfo",
@@ -361,13 +361,13 @@ Good for testing purposes.
 _Request brief user profile information_
 
 NB: Requires `GetUserProfile` operation to be allowed for token
-```json
+```javascript
 {  
   "token": "abcdef12312341234", // access token
   "action": "requestProfile"  
 }
 ```
-```json
+```javascript
 {  
   "action": "requestProfile",  
   "result": "Ok",  
@@ -395,13 +395,13 @@ NB: Requires `GetUserProfile` operation to be allowed for token
 _Request users stock information_
 
 NB: Requires `GetStock` operation to be allowed for token
-```json
+```javascript
 {  
   "token": "1c5c036f2b851a8a7ac9ed485295cf86",  
   "action": "requestStock"  
 }
 ```
-```json
+```javascript
 {  
   "action": "requestStock",  
   "result": "Ok",  
@@ -436,7 +436,7 @@ Possible results are:
 * `Ok` - Well, everything is Ok
 * `BadAmount` - Amount is either less than or equal to zero
 * `BadCurrency` - The currency you chose is not allowed
-* `BadFormat` - Message format is bad. It could be an invalid JSON, or types are wrong, or not all fields are sane.
+* `BadFormat` - Message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane.
 * `ActionNotFound` - the action you have requested is absent. Check spelling. 
 * `NoSuchUser` - UserId is wrong, or user became inactive
 * `NotRegistered` - Your app is not yet registered

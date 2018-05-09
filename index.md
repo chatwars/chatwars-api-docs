@@ -1,7 +1,3 @@
----
-title: Chat Wars API Documentation
----
-
 # CW API v0.5
 
 ## What is new

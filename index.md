@@ -1,6 +1,5 @@
 ---
 title: Chat Wars API Documentation
-layout: post
 ---
 
 # CW API v0.5

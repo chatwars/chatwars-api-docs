@@ -305,7 +305,7 @@ _Previously, transfers held an amount of gold from users account to application'
 ```
 
 
-### payout
+### [payout](#payout)
 _Transfers of a given amount of gold (or pouches) from the application's balance to users account._
 
 **NB:** The message will be sent in HTML parsing mode, in case of bad formatting the user will not receive any message at all. Pay attention.

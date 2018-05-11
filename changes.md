@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Changes
-navigation: 1
+navigation: 2
 ---
 
 ## Latest changes

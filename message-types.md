@@ -11,24 +11,24 @@ _Access request from your application to the user._
 After this command is issued, game bot will send a notification to the user containing authorization code. If one agrees to grant you access, it will pass this code to your application. 
 ```javascript
 // outbound queue
-{ 
-    "action": "createAuthCode", 
-    "payload": {
-        "userId": 1234567 // subjects telegram userId
-    }
+{
+  "action": "createAuthCode",
+  "payload": {
+    "userId": 1234567 // subjects Telegram userId
+  }
 }
 ```
 
 In case of a success, your application will get following message.
 ```javascript
 // inbound queue
-{ 
-    "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
-    "action": "createAuthCode", 
-    "result": "Ok",   
-    "payload": {
-        "userId": 1234567 // subjects telegram userId
-    }
+{
+  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
+  "action": "createAuthCode",
+  "result": "Ok",
+  "payload": {
+    "userId": 1234567 // subjects Telegram userId
+  }
 }
 ```
 
@@ -38,26 +38,26 @@ _Exchange auth code for access token._
 Having the access code, your application should obtain access token, in order to work with most of the API methods. As of now token lifetime is unlimited.
 ```javascript
 // outbound queue
-{ 
-    "action": "grantToken",
-    "payload": {
-        "userId": 1234567,  // subjects telegram userId
-        "authCode": "12345" // authorization code, entered by user
-    }
+{
+  "action": "grantToken",
+  "payload": {
+    "userId": 1234567, // subjects Telegram userId
+    "authCode": "12345" // authorization code, entered by user
+  }
 }
 ```
 
 ```javascript
 // inbound queue
-{ 
-    "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
-    "action": "grantToken",
-    "result": "Ok", 
-    "payload": {
-        "userId": 1234567, // telegram user id
-        "id" :"53f3e27a124e01dcdd77de45995bf0db" // in-game user id
-        "token": "abcdefgh12345768", // access token to be used further
-    }
+{
+  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
+  "action": "grantToken",
+  "result": "Ok",
+  "payload": {
+    "userId": 1234567, // telegram user id
+    "id": "53f3e27a124e01dcdd77de45995bf0db", // in-game user id
+    "token": "abcdefgh12345768" // access token to be used further
+  }
 }
 ```
 
@@ -68,29 +68,31 @@ In case your other action failed with `Forbidden` result, your application may f
 
 **NB:** Do not spam with this request or sanctions will follow.
 ```javascript
-{  
+// outbound queue
+{
   "token": "abcdefgh12345768", // target user access token
-  "action": "authAdditionalOperation",  
-  "payload": {  
+  "action": "authAdditionalOperation",
+  "payload": {
     "operation": "GetUserProfile" // requested operation
-   }  
+  }
 }
 ```
 ```javascript
-{  
-  "uuid": "baa5u2tk324isodm85og",  
-  "result": "Ok",  
-  "payload": {  
-    "operation": "GetUserProfile",  
-    "userId": 1234567  
-   }  
+// inbound queue
+{
+  "uuid": "baa5u2tk324isodm85og",
+  "result": "Ok",
+  "payload": {
+    "operation": "GetUserProfile",
+    "userId": 1234567
+  }
 }
-
 ```
 
 ### grantAdditionalOperation
 Completes the `authAdditionalOperation` action.
 ```javascript
+// outbound queue
 {  
   "token": "abcdefgh12345768", // target user access token
   "action": "grantAdditionalOperation",  
@@ -101,6 +103,7 @@ Completes the `authAdditionalOperation` action.
 }
 ```
 ```javascript
+// inbound queue
 {  
   "action": "grantAdditionalOperation",  
   "result": "Ok",  
@@ -134,21 +137,20 @@ After the authorizePayment command is issued the user will receive forementioned
 ```
 ```javascript
 // inbound queue
-{  
-  "uuid" : "b9qvvgtk324j2d8gdqjg", // request correlationId  
-   "action": "authorizePayment",  
-  "result": "Ok",  
-  "payload": {  
-    "fee": {  
-      "gold" : 4 // comission amount  
-   },  
-    "debit" :{  
+{
+  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId  
+  "action": "authorizePayment",
+  "result": "Ok",
+  "payload": {
+    "fee": {
+      "gold": 4 // comission amount  
+    },
+    "debit": {
       "gold": 496 // the application balance amount will be debited with  
-   },  
-    "userId": 12345678 // subjects userId  
-   }  
+    },
+    "userId": 12345678 // subjects Telegram userId  
+  }
 }
-
 ```
 
 ### pay
@@ -169,20 +171,20 @@ _Previously, transfers held an amount of gold from users account to application'
 ```
 ```javascript
 // inbound queue
-{  
+{
   "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId  
-   "token": "abcdef12312341234", // access token  
-   "action": "pay",  
-  "result": "Ok",  
-  "payload": {  
-    "fee": {  
+  "token": "abcdef12312341234", // access token  
+  "action": "pay",
+  "result": "Ok",
+  "payload": {
+    "fee": {
       "gold": 4 // comission amount    
-  },  
-    "debit": {  
+    },
+    "debit": {
       "gold": 496 // the application balance amount will be debited with    
-  },  
+    },
     "userId": 12345678 // subjects userId  
-  }  
+  }
 }
 ```
 
@@ -195,26 +197,26 @@ _Transfers of a given amount of gold (or pouches) from the application's balance
 **NB2:** Do not abuse. Do not send links/spam/scam, otherwise your account will be blocked.
 ```javascript
 // outbound queue
-{  
-  "token": "abcdef12312341234",  
-  "action": "payout",  
-  "payload": {  
+{
+  "token": "abcdef12312341234",
+  "action": "payout",
+  "payload": {
     "transactionId": "7ce30f94-3a8b-4a42-9f28-b2b1220e4a3c", // applications internal transaction id, must be unique  
-   "amount": {  
+    "amount": {
       "pouches": 5 // amount of gold pouches application wishes to transfer to user  
-   },  
+    },
     "message": "You have won 500💰" // arbitrary message, limit - 100 symbols  
-   }  
+  }
 }
 ```
 ```javascript
 // inbound queue
 {
-  "uuid" : "b9qvvgtk324j2d8gdqjg",    
+  "uuid": "b9qvvgtk324j2d8gdqjg",
   "action": "payout",
-  "result": "Ok", 
+  "result": "Ok",
   "payload": {
-    "userId": 12345678 // subject userdId
+    "userId": 12345678 // subject Telegram userdId
   }
 }
 ```
@@ -226,17 +228,17 @@ Good for testing purposes.
 ```javascript
 // outbound queue
 {
-    "action" : "getInfo"
+  "action": "getInfo"
 }
 ```
 ```javascript
 // inbound queue
 {
-    "action" : "getInfo",
-    "result": "Ok", 
-    "payload": {
-        "balance": 1231242 // your current applications balance
-    }
+  "action": "getInfo",
+  "result": "Ok",
+  "payload": {
+    "balance": 1231242 // your current applications balance
+  }
 }
 ```
 
@@ -245,17 +247,19 @@ _Request brief user profile information_
 
 **NB:** Requires `GetUserProfile` operation to be allowed for token
 ```javascript
-{  
+// outbound queue
+{
   "token": "abcdef12312341234", // access token
-  "action": "requestProfile"  
+  "action": "requestProfile"
 }
 ```
 ```javascript
-{  
-  "action": "requestProfile",  
-  "result": "Ok",  
-  "payload": {  
-    "profile": {  
+// inbound queue
+{
+  "action": "requestProfile",
+  "result": "Ok",
+  "payload": {
+    "profile": {
       "atk": 78,
       "castle": "🦌",
       "class": "⚒",
@@ -267,10 +271,10 @@ _Request brief user profile information_
       "mana": 880,
       "pouches": 10,
       "stamina": 4,
-      "userName": "WolperTinger"  
-   },  
-    "userId": 12345678  
-   }  
+      "userName": "WolperTinger"
+    },
+    "userId": 12345678
+  }
 }
 ```
 
@@ -279,38 +283,40 @@ _Request users stock information_
 
 **NB:** Requires `GetStock` operation to be allowed for token
 ```javascript
-{  
-  "token": "1c5c036f2b851a8a7ac9ed485295cf86",  
-  "action": "requestStock"  
+// outbound queue
+{
+  "token": "1c5c036f2b851a8a7ac9ed485295cf86",
+  "action": "requestStock"
 }
 ```
 ```javascript
-{  
-  "action": "requestStock",  
-  "result": "Ok",  
-  "payload": {  
-    "stock": {  
-      "Bone": 239,  
-      "Charcoal": 158,  
-      "Cloth": 1,  
-      "Cloth jacket": 1,  
-      "Coal": 112,  
-      "Flour": 1,  
-      "Iron ore": 1,  
-      "Leather": 2,  
-      "Milk": 663,  
-      "Mithril shield": 1,  
-      "Pelt": 45,  
-      "Pouch of gold": 2312,  
-      "Powder": 271,  
-      "Steel boots": 1,  
-      "Stick": 105,  
-      "String": 4,  
-      "Thread": 131,  
-      "Torch": 1  
-   },  
-    "userId": 12345678  
-   }  
+// inbound queue
+{
+  "action": "requestStock",
+  "result": "Ok",
+  "payload": {
+    "stock": {
+      "Bone": 239,
+      "Charcoal": 158,
+      "Cloth": 1,
+      "Cloth jacket": 1,
+      "Coal": 112,
+      "Flour": 1,
+      "Iron ore": 1,
+      "Leather": 2,
+      "Milk": 663,
+      "Mithril shield": 1,
+      "Pelt": 45,
+      "Pouch of gold": 2312,
+      "Powder": 271,
+      "Steel boots": 1,
+      "Stick": 105,
+      "String": 4,
+      "Thread": 131,
+      "Torch": 1
+    },
+    "userId": 12345678
+  }
 }
 ```
 
@@ -318,22 +324,23 @@ _Request users stock information_
 _Issues an wtb order on behalf of user_
 ```javascript
 // outbound queue
-{  
-  "token": "abcdef12312341234",  
-  "action": "wantToBuy",  
-  "payload": {  
+{
+  "token": "abcdef12312341234",
+  "action": "wantToBuy",
+  "payload": {
     "itemCode": "20", // the code of an item 
-    "quantity": 5, 
+    "quantity": 5,
     "price": 5, // desired price
     "exactPrice": true // try to buy exactly for given price, fail otherwise
-   }  
+  }
 }
 ```
 ```javascript
-{  
-  "action": "wantToBuy",  
-  "result": "Ok",  
-  "payload": {  
+// inbound queue
+{
+  "action": "wantToBuy",
+  "result": "Ok",
+  "payload": {
     "itemName": "Leather",
     "quantity": 5,
     "userId": 1234567

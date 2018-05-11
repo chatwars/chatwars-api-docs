@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Github Pages
-navigation: 3
+title: Abstract
+navigation: 2
 ---
 
 # Abstract

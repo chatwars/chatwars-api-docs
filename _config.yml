@@ -1,6 +1,11 @@
-theme: jekyll-theme-cayman
 title: Chat Wars API Documentation
 description: AMQP based API for Chat Wars text MMORPG
-github:
-  is_project_page: false
-  
+remote_theme: alexander-heimbuch/millidocs
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+exclude:
+  - README.md

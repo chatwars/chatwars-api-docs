@@ -1,6 +1,10 @@
 # CW API v0.5
 
 ## Latest changes
+_v0.6_
+- `wantToBuy` action
+- bugfix in `InvalidToken` response
+
 _v0.5_
 - `yellow_pages` exchange
 - Extended user profile info
@@ -443,14 +447,41 @@ _Request users stock information_
 }
 ```
 
+### wantToBuy
+_Issues an wtb order on behalf of user_
+```javascript
+// outbound queue
+{  
+  "token": "abcdef12312341234",  
+  "action": "wantToBuy",  
+  "payload": {  
+    "itemCode": "20", // the code of an item 
+    "quantity": 5, 
+    "price": 5, // desired price
+    "exactPrice": true // try to buy exactly for given price, fail otherwise
+   }  
+}
+```
+```javascript
+{  
+  "action": "wantToBuy",  
+  "result": "Ok",  
+  "payload": {  
+    "itemName": "Leather",
+    "quantity": 5,
+    "userId": 1234567
+  }
+}
+```
+
 ## Results
 Possible results are:
-* `Ok` - Well, everything is Ok
+* `Ok` - Everything is Ok
 * `BadAmount` - Amount is either less than or equal to zero
 * `BadCurrency` - The currency you chose is not allowed
-* `BadFormat` - Message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane.
-* `ActionNotFound` - the action you have requested is absent. Check spelling. 
-* `NoSuchUser` - UserId is wrong, or user became inactive
+* `BadFormat` - Message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane
+* `ActionNotFound` - the action you have requested is absent. Check spelling
+* `NoSuchUser` - UserID is wrong, or user became inactive
 * `NotRegistered` - Your app is not yet registered
 * `InvalidCode` - Authorization code is incorrect
 * `TryAgain` - if we have some technical difficulties, or bug and are willing for you to repeat request

@@ -1,4 +1,4 @@
-# CW API v0.5
+# CW API v0.6
 
 ## Latest changes
 _v0.6_

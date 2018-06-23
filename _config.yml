@@ -9,3 +9,5 @@ kramdown:
 
 exclude:
   - README.md
+
+theme: jekyll-theme-merlot

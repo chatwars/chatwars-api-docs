@@ -80,6 +80,7 @@ In case your other action failed with `Forbidden` result, your application may f
 ```javascript
 // inbound queue
 {
+  "action": "authAdditionalOperation",
   "uuid": "baa5u2tk324isodm85og",
   "result": "Ok",
   "payload": {
@@ -106,6 +107,7 @@ Completes the `authAdditionalOperation` action.
 // inbound queue
 {  
   "action": "grantAdditionalOperation",  
+  "uuid": "baa5u2tk324isodm85og",
   "result": "Ok",  
   "payload": {  
     "requestId": "baa5u2tk324isodm85og",  
@@ -235,6 +237,7 @@ Good for testing purposes.
 // inbound queue
 {
   "action": "getInfo",
+  "uuid": "baa5u2tk324isodm85og",
   "result": "Ok",
   "payload": {
     "balance": 1231242 // your current applications balance
@@ -257,6 +260,7 @@ _Request brief user profile information_
 // inbound queue
 {
   "action": "requestProfile",
+  "uuid": "baa5u2tk324isodm85og",
   "result": "Ok",
   "payload": {
     "profile": {
@@ -293,6 +297,7 @@ _Request users stock information_
 // inbound queue
 {
   "action": "requestStock",
+  "uuid": "baa5u2tk324isodm85og",
   "result": "Ok",
   "payload": {
     "stock": {
@@ -339,6 +344,7 @@ _Issues an wtb order on behalf of user_
 // inbound queue
 {
   "action": "wantToBuy",
+  "uuid": "baa5u2tk324isodm85og",
   "result": "Ok",
   "payload": {
     "itemName": "Leather",

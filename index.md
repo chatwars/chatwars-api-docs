@@ -18,3 +18,13 @@ Apart from that, there is a set of public fan-out read-only exchanges, where you
 For now all queues are limited in size by 1Mb, with discard-oldest policy. 
 
 Please note, that at this moment, API is highly unstable.
+
+##FAQ
+Q: Why can I not declare my queues?
+A: Because their pre-declared for you. You only have to consume and publish
+
+Q: Why is this message continuously repeating itself?
+A: You may not be ack-ing the message the API sent which causes it to come back to you next restart.
+
+Q: Am I stupid?
+A: Yes.

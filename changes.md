@@ -8,7 +8,7 @@ navigation: 2
 ## Latest Changes
 ### Version 0.7
 * `au_digest` queue added
-..* sends data every 3 minutes
+.* sends data every 3 minutes
 ### Version 0.6
 * `wantToBuy` method added
 * `InvalidToken` response fixed

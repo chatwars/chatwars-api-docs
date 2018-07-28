@@ -118,5 +118,3 @@ Access to pouch transactions: removed
 Q: **Am I stupid?**
 
 A: Yes.
-
----

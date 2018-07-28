@@ -4,22 +4,39 @@ title: Changes
 navigation: 2
 ---
 
-## Latest changes
-_v0.6_
-- `wantToBuy` action
-- bugfix in `InvalidToken` response
 
-_v0.5_
-- `yellow_pages` exchange
-- Extended user profile info
-
-_v0.4_
-- Top 5 offers digest, updated every N minutes
-- Actions for user operations (read profile, stock)
-- Grants
-
-_v0.3.1_
-- "OK" response from now is "Ok"
-
-_v0.3_
-- Initial release
+## Latest Changes
+### **Version 0.7**
+- `au_digest` queue added
+  - sends data every 3 minutes
+- End of Changes
+### **Version 0.6**
+- `wantToBuy` method added
+- `InvalidToken` response fixed
+- End of Changes
+### **Version 0.5**
+- `yellow_pages` queue added
+  - sends data every 5 minutes
+- more data added to `requestProfile` method
+- End of Changes
+### **Version 0.4**
+- `requestProfile` method added
+- `requestStock` method added
+- `authAdditionalOperation` method added
+- `grantAdditionalOperation` method added
+- `sex_digest` queue added
+  - sends data every 5 minutes
+- End of Changes
+### **Version 0.3.1**
+- Modified result code from `OK` to `Ok`
+- End of Changes
+### **Version 0.3** (initial release)
+- `createAuthCode` method added
+- `grantToken` method added
+- `authorizePayment` method added
+- `pay` method added
+- `payout` method added
+- `getInfo` method added
+- `deals` queue added
+- `offers` queue added
+- End of Changes

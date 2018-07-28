@@ -18,9 +18,11 @@ Possible results are:
 - `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong
 - `InsufficientFunds` - the player or application balance is insufficient
 
+
 ## Reactive Payloads
 These errors should have some kind of system reacting to the message
 - `InvalidToken` - no such token, might be revoked?
+
 ```javascript
 {
   "result": "InvalidToken",
@@ -29,7 +31,9 @@ These errors should have some kind of system reacting to the message
   }
 }
 ```
+
 - `Forbidden` - Your app has no rights to execute this action with this token. Payload will contain `requiredOperation` field. We encourage you to use this field in following `authAdditionalOperation`, instead of enumerating existing ones
+
 ```javascript
 {
   "result": "Forbidden",
@@ -39,3 +43,4 @@ These errors should have some kind of system reacting to the message
   }
 }
 ```
+

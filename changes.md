@@ -9,6 +9,7 @@ navigation: 2
 ### Version 0.7
 * `au_digest` queue added
   * sends data every 3 minutes
+
 ### Version 0.6
 * `wantToBuy` method added
 * `InvalidToken` response fixed
@@ -23,6 +24,7 @@ navigation: 2
 * `grantAdditionalOperation` method added
 * `sex_digest` queue added
   * sends data every 5 minutes
+
 #### Version 0.3.1
 * Modified result code from `OK` to `Ok` _1_
 ### Version 0.3

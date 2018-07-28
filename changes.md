@@ -34,3 +34,5 @@ navigation: 2
   * `getInfo` method added
   * `deals` queue added
   * `offers` queue added
+
+test

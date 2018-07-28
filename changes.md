@@ -10,6 +10,7 @@ navigation: 2
 * `au_digest` queue added
  * sends data every 3 minutes
 
+
 ### Version 0.6
 * `wantToBuy` method added
 * `InvalidToken` response fixed
@@ -17,6 +18,8 @@ navigation: 2
 * `yellow_pages` queue added 
  * sends data every 5 minutes
 * more data added to `requestProfile` method
+
+
 ### Version 0.4
 * `requestProfile` method added
 * `requestStock` method added
@@ -24,6 +27,7 @@ navigation: 2
 * `grantAdditionalOperation` method added
 * `sex_digest` queue added
  * sends data every 5 minutes
+
 
 #### Version 0.3.1
 * Modified result code from `OK` to `Ok` _1_

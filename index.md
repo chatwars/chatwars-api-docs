@@ -35,22 +35,22 @@ There are two versions of the game with an API, and there are two versionf of th
 | CW3 | amqps://api.chtwrs.com:5673 |
 
 ## FAQ
-Q: Why can I not declare my queues?
+Q: **Why can I not declare my queues?**
 
 A: Because they are pre-declared for you. You only have to consume and publish
 
 ---
-Q: Why is this message continuously repeating itself?
+Q: **Why is this message continuously repeating itself?**
 
 A: You may not be ack-ing the message the API sent which causes it to come back to you on the next restart of your consumer.
 
 ---
-Q: Why am I getting an ACCESS_REFUSED error?
+Q: **Why am I getting an ACCESS_REFUSED error?**
 
 A: You are not meant to be declaring anything within the API, You only have to consume and publish.
 
 ---
-Q: Why can't I log in?
+Q: **Why can't I log in?**
 
 A: You may not be connecting to the correct instance of the API! If you wish to connect to the CW3 API, This table is a good reference for what API corresponds to what URL
 
@@ -60,7 +60,7 @@ A: You may not be connecting to the correct instance of the API! If you wish to 
 | CW3 | amqps://api.chtwrs.com:5673 |
 
 ---
-Q: How do I obtain access to the API?
+Q: **How do I obtain access to the API?**
 
 A:
 
@@ -115,7 +115,7 @@ Access to pouch transactions: removed
 ---
  
 
-Q: Am I stupid?
+Q: **Am I stupid?**
 
 A: Yes.
 

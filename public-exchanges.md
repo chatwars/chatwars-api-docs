@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Public Exchanges
-navigation: 7
+navigation: 3
 ---
 ## Public Exchanges
 ### deals

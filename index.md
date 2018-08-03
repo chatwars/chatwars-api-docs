@@ -113,8 +113,15 @@ Access to pouch transactions: removed
 ```
 
 ---
- 
+Q: **How do I access a queue?**
 
+A: To access a queue, you must first ensure that you have had one granted. To be granted a queue, simply request a modification to your application with the additional queue added to it. After a queue has been granted to you, you can start consuming from it with `%username%_%queue%`.
+
+*Note: Failiure to actually consume from your queue can result in it being revoked*
+
+*The current list of queues available can be found in [This section of the documentation](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html)*
+
+---
 Q: **Am I stupid?**
 
 A: Yes.

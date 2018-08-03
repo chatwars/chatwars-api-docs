@@ -267,6 +267,7 @@ _Request brief user profile information_
       "exp": 108785,
       "gold": 137,
       "guild": "No Correlation",
+      "guild_tag": "NaN",
       "lvl": 35,
       "mana": 880,
       "pouches": 10,

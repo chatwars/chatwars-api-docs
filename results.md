@@ -8,11 +8,11 @@ navigation: 5
 Possible results are:
 - `Ok` - Everything is Ok
 - `BadAmount` - Amount is either less than or equal to zero
-- `BadCurrency` - The currency you chose is not allowed
+- `BadCurrency` - The currency you specified is not permitted to be used in this request.
 - `BadFormat` - Message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane
 - `ActionNotFound` - the action you have requested is absent. Check spelling
 - `NoSuchUser` - UserID is wrong, or user became inactive
-- `NotRegistered` - Your app is not yet registered
+- `NotRegistered` - Your app is not yet registered. You must request access to this feature seperately.
 - `InvalidCode` - Authorization code is incorrect
 - `TryAgain` - if we have some technical difficulties, or bug and are willing for you to repeat request
 - `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong

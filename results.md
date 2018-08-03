@@ -12,7 +12,7 @@ Possible results are:
 - `BadFormat` - Message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane
 - `ActionNotFound` - the action you have requested is absent. Check spelling
 - `NoSuchUser` - UserID is wrong, or user became inactive
-- `NotRegistered` - Your app is not yet registered. You must request access to this feature seperately.
+- `NotRegistered` - Your app is not yet registered. You must request access to this feature separately.
 - `InvalidCode` - Authorization code is incorrect
 - `TryAgain` - if we have some technical difficulties, or bug and are willing for you to repeat request
 - `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong

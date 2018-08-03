@@ -23,7 +23,7 @@ As soon as someone successfully purchases an item from the Stock Exchange, this 
 ```
 
 ### offers
-_Good intentions here, right guys? guys...?_
+_Good intentions here, right guys? Guys...?_
 
 When an item becomes available for purchase on the Stock Exchange, this exchange will be notified of the event.
 ```javascript
@@ -117,7 +117,7 @@ Every 5 minutes, this exchange will receive a list of all the player shops that 
 ```
 
 ### au_digest
-_I'll buy this one and that one! Wait! stop outbidding your own teammates!_
+_I'll buy this one and that one! Wait! Stop outbidding your own teammates!_
 
 Every 3 minutes, a list of all active auction lots will be sent to this exchange.
 ```javascript

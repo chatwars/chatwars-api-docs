@@ -17,6 +17,7 @@ Possible results are:
 - `TryAgain` - if we have some technical difficulties, or bug and are willing for you to repeat request
 - `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong
 - `InsufficientFunds` - the player or application balance is insufficient
+- `NotInGuild` - the player is not in guild
 
 
 ## Reactive Payloads

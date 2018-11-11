@@ -321,6 +321,55 @@ _Request users stock information_
 }
 ```
 
+### guildInfo
+_Request users guild information. Common info and stock. Excluding roster.
+
+**NB:** Requires `GuildInfo` operation to be allowed for token
+```javascript
+// outbound queue
+{
+  "token": "1c5c036f2b851a8a7ac9ed485295cf86",
+  "action": "guildInfo"
+}
+```
+```javascript
+// inbound queue
+{
+  "action": "guildInfo",
+  "result": "Ok",
+  "payload": {
+    "tag": "OOF",
+    "level": 9,
+    "castle": "🦌",
+    "glory": 19287,
+    "members": 32,
+    "name": "Out Of Fuel",
+    "lobby": "We hack, we slash, we duck, we dash!",
+    "stock": {
+      "Bone": 239,
+      "Charcoal": 158,
+      "Cloth": 1,
+      "Cloth jacket": 1,
+      "Coal": 112,
+      "Flour": 1,
+      "Iron ore": 1,
+      "Leather": 2,
+      "Milk": 663,
+      "Mithril shield": 1,
+      "Pelt": 45,
+      "Pouch of gold": 2312,
+      "Powder": 271,
+      "Steel boots": 1,
+      "Stick": 105,
+      "String": 4,
+      "Thread": 131,
+      "Torch": 1
+    },
+    "userId": 12345678
+  }
+}
+```
+
 ### wantToBuy
 _Issues an wtb order on behalf of user_
 ```javascript

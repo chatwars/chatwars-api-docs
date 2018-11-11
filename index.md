@@ -4,7 +4,7 @@ title: Overview
 navigation: 1
 ---
 
-# Chat Wars API v0.7
+# Chat Wars API v0.8
 Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram platform under the game bot. There are three game bots, but only two of them have an API that is publicly accessible.
 
 | Server | Description |
@@ -73,8 +73,10 @@ If you do not receive a response within an acceptable timeframe, you can also se
 A recommended format to use (but not required) can be used to make the request more clear and simple. A sample format has been provided for you.
 ```plaintext
 #api
+instance: cw3/cw2
 name of application: my amazing application
 purpose: Make the players have an amazing experience
+my telegram name: `@durov`
 
 Requested queues:
 sex_digest

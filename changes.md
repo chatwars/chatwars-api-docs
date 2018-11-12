@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.8**
+- `guildInfo` action added
 ### **Version 0.7**
 - `au_digest` queue added
   - sends data every 3 minutes

@@ -242,6 +242,47 @@ Good for testing purposes.
 }
 ```
 
+### viewCraftbook
+_Request the list of recipes known to user._
+
+**NB:** Requires `ViewCraftbook` operation to be allowed for token
+```javascript
+// outbound queue
+{
+  "token": "abcdef12312341234", // access token
+  "action": "requestProfile"
+}
+```
+```javascript
+// inbound queue
+{
+    "action": "viewCraftbook",
+    "result": "Ok",
+    "userId": 12345678,
+    "payload": {
+        "alchemy": [],
+        "craft": [{
+            "id": "33",
+            "name": "Metal plate",
+            "price": 1
+        }, {
+            "id": "19",
+            "name": "Steel",
+            "price": 1
+        }, {
+            "id": "505",
+            "name": "Wooden arrows pack",
+            "price": 1
+        }, {
+            "id": "24",
+            "name": "Purified powder",
+            "price": 1
+        }, {
+        ...
+    }
+}
+```
+
 ### requestProfile
 _Request brief user profile information_
 

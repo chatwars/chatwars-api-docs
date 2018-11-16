@@ -250,7 +250,7 @@ _Request the list of recipes known to user._
 // outbound queue
 {
   "token": "abcdef12312341234", // access token
-  "action": "requestProfile"
+  "action": "viewCraftbook"
 }
 ```
 ```javascript

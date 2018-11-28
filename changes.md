@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9**
+- `viewCraftbook` action added
 ### **Version 0.8**
 - `guildInfo` action added
 ### **Version 0.7**

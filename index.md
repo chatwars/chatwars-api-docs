@@ -14,7 +14,7 @@ Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram p
 | [CW3](https://t.me/chatwarsbot) | CW3 is the most recent iteration of Chat Wars, and receives updates very soon after the international server receives an update. It has no restrictions on who can join the game, however, text is a mixture of Russian and English. This version of the game was launched in Mid 2018. |
 
 ## Abstract
-Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with  an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` that is running on the international server there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i` (for the testing purpose there will be `dices_to` and `dices_ti` queues respectively)
+Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with  an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` that is running on the international server there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i`
 
 The connection url will be: `amqps://dices:[hidden]@api.chatwars.me:5673/`
 
@@ -125,6 +125,11 @@ A: To access a queue, you must first ensure that you have had one granted. To be
 *Note: Failure to actually consume from your queue can result in it being revoked*
 
 *The current list of queues available can be found in [This section of the documentation](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html)*
+
+---
+Q: **I just got asked to test a feature on a "testing queue". What's that?**
+
+A: This means that new functionality for the API is being tested, and is not yet available for other applications. There is a seperate queue and routing key that you should use in this scenario. When you get asked to do the test, you should consume from the `app_ti` queue, and publish requests with the `app_to` routing key instead. So, if your application is called `dices`, you would be consuming from `dices_ti`, publishing to the `dices_ex` exchange, and use the `dices_to` routing key.
 
 ---
 Q: **Am I stupid?**

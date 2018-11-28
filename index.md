@@ -91,6 +91,8 @@ Default permissions:
  - issue a wtb/wts/rm commands on your behalf
  - read your profile information
  - read your stock info
+ - to view your craft or alchemists book
+ - to read your guild info (stock, lobby, etc..)
 
 Do you want pouch transactions enabled: yes
 ```

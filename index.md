@@ -73,7 +73,7 @@ If you do not receive a response within an acceptable timeframe, you can also se
 A recommended format to use (but not required) can be used to make the request more clear and simple. A sample format has been provided for you.
 ```plaintext
 #api
-instance: cw3/cw2
+instance: cw3/cw2/both
 name of application: my amazing application
 purpose: Make the players have an amazing experience
 my telegram name: `@durov`
@@ -98,6 +98,7 @@ Do you want pouch transactions enabled: yes
 Modification of your application can also be requested with a format similar to this:
 ```plaintext
 #api
+instance: cw3/cw2/both
 Request of modification to my app:
 name of application: my amazing application
 

@@ -320,6 +320,35 @@ _Request brief user profile information_
 }
 ```
 
+### requestBasicInfo
+_Request basic user stats_
+
+Base attack and defence (equipment bonuses are not included) and current class.
+
+**NB:** Requires `GetBasicInfo` operation to be allowed for token
+```javascript
+// outbound queue
+{
+  "token": "abcdef12312341234", // access token
+  "action": "requestBasicInfo"
+}
+```
+```javascript
+// inbound queue
+{
+  "action": "requestBasicInfo",
+  "result": "Ok",
+  "payload": {
+    "profile": {
+      "class": "⚒",
+      "atk": 78,
+      "def": 145,
+    },
+    "userId": 12345678
+  }
+}
+```
+
 ### requestStock
 _Request users stock information_
 

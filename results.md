@@ -19,7 +19,7 @@ Possible results are:
 - `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong
 - `InsufficientFunds` - the player or application balance is insufficient
 - `LevelIsLow` - The player is not a high enough level to do this action.
-- `NotInGuild` - the player is not in guild
+- `NotInGuild` - the player is not in implied guild
 
 
 ## Reactive Payloads

@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9.2**
+- new object `specialization` in `yellow_pages`
 ### **Version 0.9.1**
 - `requestBasicInfo` action added
 ### **Version 0.9**

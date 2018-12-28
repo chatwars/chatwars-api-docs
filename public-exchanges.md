@@ -80,7 +80,10 @@ Every 5 minutes, all the cheapest offers for every item on offer in the Stock Ex
 ### yellow_pages
 _Comes by a bit more frequently than once a year_
 
-Every 5 minutes, this exchange will receive a list of all the player shops that are open and published.
+Every 5 minutes, this exchange will receive a list of all the player shops that are open and published. 
+
+Specialization field makes it percentagewise clear in what kind of gear this particular blacksmith is skilled in
+
 ```javascript
 [
   {
@@ -111,7 +114,11 @@ Every 5 minutes, this exchange will receive a list of all the player shops that 
         "price": 80,
         "mana": 150
       }
-    ]
+    ],
+    "specialization": {
+        "coat": 34,
+        "helmet": 75
+    }
   }    
 ]
 ```

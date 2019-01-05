@@ -133,6 +133,7 @@ Every 3 minutes, a list of all active auction lots will be sent to this exchange
     "lotId": "71499",
     "itemName": "Hunter dagger",
     "sellerName": "E them Up",
+    "quality": "Fine",
     "sellerCastle": "🦌",
     "endAt": "2018-07-15T20:23:38.217Z",
     "startedAt": "2018-07-15T16:20:16.851Z",

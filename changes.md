@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9.5**
+- New `guildDiscount`/`castleDiscount` fields in `yellow_pages`
 ### **Version 0.9.4**
 - new fanout `duels`
 ### **Version 0.9.3**

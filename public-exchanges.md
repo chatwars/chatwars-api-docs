@@ -22,6 +22,31 @@ As soon as someone successfully purchases an item from the Stock Exchange, this 
 }
 ```
 
+### duels
+
+When the duel ends, the result is posted to this exchange.
+
+```javascript
+{
+  "winner": {
+    "id": "abcdefghkadsfkl3214",
+    "name": "Anime Sex Storm",
+    "tag": "NAN",
+    "castle": "🐉",
+    "level": 56
+  },
+  "loser": {
+    "id": "abcdefghkakjdhfaskd",
+    "name": "aShark",
+    "tag": "NOT",
+    "castle": "🦌",
+    "level": 57
+  },
+  "isChallenge": true,   // it is a challenge or plain arena
+  "isGuildDuel": true    // the result will affect guilds glory
+}
+```
+
 ### offers
 _Good intentions here, right guys? Guys...?_
 

@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9.4**
+- new fanout `duels`
 ### **Version 0.9.3**
 - new field `quality` in `au_digest`
 ### **Version 0.9.2**

@@ -107,7 +107,9 @@ _Comes by a bit more frequently than once a year_
 
 Every 5 minutes, this exchange will receive a list of all the player shops that are open and published. 
 
-Specialization field makes it percentagewise clear in what kind of gear this particular blacksmith is skilled in
+Specialization field makes it percentagewise clear in what kind of gear this particular blacksmith is skilled in.
+
+While processing this digest, you shall take into the account target customer guild and castle, as the final price might differ by guild/castle discount percent that may or may not be set.
 
 ```javascript
 [
@@ -143,7 +145,9 @@ Specialization field makes it percentagewise clear in what kind of gear this par
     "specialization": {
         "coat": 34,
         "helmet": 75
-    }
+    },
+    "guildDiscount": 15,
+    "castleDiscount": 7
   }    
 ]
 ```

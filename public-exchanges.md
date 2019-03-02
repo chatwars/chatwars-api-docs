@@ -33,14 +33,16 @@ When the duel ends, the result is posted to this exchange.
     "name": "Anime Sex Storm",
     "tag": "NAN",
     "castle": "🐉",
-    "level": 56
+    "level": 56,
+    "hp": 1
   },
   "loser": {
     "id": "abcdefghkakjdhfaskd",
     "name": "aShark",
     "tag": "NOT",
     "castle": "🦌",
-    "level": 57
+    "level": 57,
+    "hp": 0
   },
   "isChallenge": true,   // it is a challenge or plain arena
   "isGuildDuel": true    // the result will affect guilds glory

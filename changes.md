@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9.6**
+- Duelist model now has HP field.
 ### **Version 0.9.5**
 - New `guildDiscount`/`castleDiscount` fields in `yellow_pages`
 ### **Version 0.9.4**

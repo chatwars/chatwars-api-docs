@@ -169,7 +169,12 @@ Every 3 minutes, a list of all active auction lots will be sent to this exchange
     "endAt": "2018-07-15T20:23:38.217Z",
     "startedAt": "2018-07-15T16:20:16.851Z",
     "buyerCastle": "🦌",
-    "price": 9
+    "buyerName": "Shortspear", // only for finished auctions
+    "price": 9,
+    "stats" : {
+        "⚔": 4,
+        "🎒": 3
+    }
   },
   {
     "lotId": "71500",

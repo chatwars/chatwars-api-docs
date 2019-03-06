@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9.7**
+- `au_digest` model extended to reflect item stats and for finished auctions it will include buyer name, along with its castle
 ### **Version 0.9.6**
 - Duelist model now has HP field.
 ### **Version 0.9.5**

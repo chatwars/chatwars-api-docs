@@ -157,7 +157,7 @@ While processing this digest, you shall take into the account target customer's 
 ### au_digest
 _I'll buy this one and that one! Wait! Stop outbidding your own teammates!_
 
-Every 3 minutes, a list of all active auction lots will be sent to this exchange.
+Every 3 minutes, a list of all active and finished during last hour auction lots will be sent to this exchange.
 ```javascript
 [
  {
@@ -169,6 +169,8 @@ Every 3 minutes, a list of all active auction lots will be sent to this exchange
     "endAt": "2018-07-15T20:23:38.217Z",
     "startedAt": "2018-07-15T16:20:16.851Z",
     "buyerCastle": "🦌",
+    "status": "Active", // one of Active / Finished / Cancelled 
+    "finishedAt": "2018-07-15T16:20:16.851Z", // only for ended auctions
     "buyerName": "Shortspear", // only for finished auctions
     "price": 9,
     "stats" : {

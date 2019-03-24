@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.9.9**
+- `guildInfo` and `requestStock` are extended to include their current size and limits
 ### **Version 0.9.8**
 ! BREAKING CHANGE ! 
 - `au_digest` model extended a bit to include current lot state. Finished and cancelled auctions are added as well.

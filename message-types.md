@@ -366,6 +366,8 @@ _Request users stock information_
   "action": "requestStock",
   "result": "Ok",
   "payload": {
+    "stockSize": 1700,
+    "stockLimit": 4000,  
     "stock": {
       "Bone": 239,
       "Charcoal": 158,
@@ -415,6 +417,8 @@ _Request users guild information. Common info and stock. Excluding roster.
     "members": 32,
     "name": "Out Of Fuel",
     "lobby": "We hack, we slash, we duck, we dash!",
+    "stockSize": 1700,
+    "stockLimit": 4000,  
     "stock": {
       "Bone": 239,
       "Charcoal": 158,

@@ -4,7 +4,7 @@ title: Overview
 navigation: 1
 ---
 
-# Chat Wars API v0.9.9
+# Chat Wars API v0.10.0
 Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram platform under the game bot. There are three game bots, but only two of them have an API that is publicly accessible.
 
 | Server | Description |

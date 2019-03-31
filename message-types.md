@@ -349,6 +349,38 @@ Base attack and defence (equipment bonuses are not included) and current class.
 }
 ```
 
+### requestGearInfo
+_Request user's current outfit_
+
+Keep in mind, that slot names and their amount can be changed without any notice.
+
+```javascript
+// outbound queue
+{
+  "token": "abcdef12312341234", // access token
+  "action": "requestGearInfo"
+}
+```
+
+```javascript
+// inbound queue
+{
+  "action": "requestBasicInfo",
+  "result": "Ok",
+  "payload": {
+    "gear": {
+      "head": "Steel Helmet",
+      "weapon": "Kitchen Knife",
+      "belt": "Leather Belt"
+    },
+    "ammo": {
+       "Silver Arrows": 77  
+    },
+    "userId": 12345678
+  }
+}
+```
+
 ### requestStock
 _Request users stock information_
 

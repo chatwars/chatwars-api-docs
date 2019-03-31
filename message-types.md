@@ -365,7 +365,7 @@ Keep in mind, that slot names and their amount can be changed without any notice
 ```javascript
 // inbound queue
 {
-  "action": "requestBasicInfo",
+  "action": "requestGearInfo",
   "result": "Ok",
   "payload": {
     "gear": {

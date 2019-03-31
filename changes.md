@@ -7,7 +7,7 @@ navigation: 2
 
 ## Latest Changes
 ### **Version 0.10.0**
-- `requestGearInfo` added, requires `ViewGearInfo` permission
+- `requestGearInfo` added, requires `GetGearInfo` permission
 ### **Version 0.9.9**
 - `guildInfo` and `requestStock` are extended to include their current size and limits
 ### **Version 0.9.8**

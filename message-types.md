@@ -354,6 +354,7 @@ _Request user's current outfit_
 
 Keep in mind, that slot names and their amount can be changed without any notice.
 
+**NB:** Requires `GetGearInfo` operation to be allowed for token
 ```javascript
 // outbound queue
 {

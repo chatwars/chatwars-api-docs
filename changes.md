@@ -6,6 +6,9 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.11.0**
+- `au_digest` line now contains info about item's condition, if applicable
+- `yellow_pages` shop line now has info about maintenance mode
 ### **Version 0.10.0**
 - `requestGearInfo` added, requires `GetGearInfo` permission
 ### **Version 0.9.9**

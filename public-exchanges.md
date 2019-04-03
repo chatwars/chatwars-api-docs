@@ -148,6 +148,8 @@ While processing this digest, you shall take into the account target customer's 
         "coat": 34,
         "helmet": 75
     },
+    "maintenanceEnabled": true,
+    "maintenanceCost": 75, // 75 gold per 100 mana spent
     "guildDiscount": 15,
     "castleDiscount": 7
   }    
@@ -166,6 +168,7 @@ Every 3 minutes, a list of all active and finished during last hour auction lots
     "sellerName": "E them Up",
     "quality": "Fine",
     "sellerCastle": "🦌",
+    "condition": "Reinforced", 
     "endAt": "2018-07-15T20:23:38.217Z",
     "startedAt": "2018-07-15T16:20:16.851Z",
     "buyerCastle": "🦌",

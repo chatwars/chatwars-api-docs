@@ -6,6 +6,9 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.12.0**
+- `requestProfile` response now reflects current and maximum user HP
+- `requestGearInfo` have now `gearInfo` field, that will supersede `gear` field, which is deprecated from now on and will be removed in future releases.
 ### **Version 0.11.0**
 - `au_digest` line now contains info about item's condition, if applicable
 - `yellow_pages` shop line now has info about maintenance mode

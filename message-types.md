@@ -305,6 +305,8 @@ _Request brief user profile information_
       "castle": "🦌",
       "class": "⚒",
       "def": 145,
+      "hp": 122,
+      "maxHp": 1377,
       "exp": 108785,
       "gold": 137,
       "guild": "No Correlation",
@@ -369,11 +371,22 @@ Keep in mind, that slot names and their amount can be changed without any notice
   "action": "requestGearInfo",
   "result": "Ok",
   "payload": {
-    "gear": {
-      "head": "Steel Helmet",
-      "weapon": "Kitchen Knife",
-      "belt": "Leather Belt"
-    },
+    "gearInfo": {
+      "head": {
+          "name": "Steel Helmet",
+          "atk": 1,
+          "def": 3
+          },
+      "weapon": { 
+          "name": "Trollhammer",
+          "stam": 10,
+          "luck": 3,
+          "atk": 87,
+          "def": 113,
+          "loot": 3,
+          "condition": "Normal",
+          "quality": "Excellent"
+      },
     "ammo": {
        "Silver Arrows": 77  
     },

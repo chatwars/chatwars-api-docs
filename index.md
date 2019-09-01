@@ -4,7 +4,7 @@ title: Overview
 navigation: 1
 ---
 
-# Chat Wars API v0.12.0
+# Chat Wars API v0.12.1
 Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram platform under the game bot. There are three game bots, but only two of them have an API that is publicly accessible.
 
 | Server | Description |
@@ -64,11 +64,7 @@ Q: **How do I obtain access to the API?**
 
 A:
 
-To access the Chat Wars API, you must first obtain a login from the feedback bot.
-* To obtain access to [@chtwrsbot (International)](http://t.me/chtwrsbot)'s API, You must request a login from [@ChatWarsFeedbackBot](http://t.me/ChatWarsFeedbackBot)
-* To obtain access to [@ChatWarsBot (CW3)](http://t.me/ChatWarsBot)'s API, You must request a login from [@ChatWarsRuFeedbackBot](http://t.me/ChatWarsRuFeedbackBot)
-
-If you do not receive a response within an acceptable timeframe, you can also send an email to [The support address](mailto:support@chtwrs.freshdesk.com)
+To access the Chat Wars API, you must first obtain a login by emailing to [The support address](mailto:support@chtwrs.freshdesk.com)
 
 A recommended format to use (but not required) can be used to make the request more clear and simple. A sample format has been provided for you.
 ```plaintext

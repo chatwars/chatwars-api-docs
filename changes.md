@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.12.1**
+- `requestProfile` and `guildInfo` now contains emoji if present
 ### **Version 0.12.0**
 - `requestProfile` response now reflects current and maximum user HP
 - `requestGearInfo` have now `gearInfo` field, that will supersede `gear` field, which is deprecated from now on and will be removed in future releases.

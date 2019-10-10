@@ -6,6 +6,9 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.12.2**
+- `roles` are added to `guildInfo`
+- `yellow_pages` now reflects the current quality craft skill level of shop
 ### **Version 0.12.1**
 - `requestProfile` and `guildInfo` now contains emoji if present
 ### **Version 0.12.0**

@@ -487,6 +487,7 @@ _Request users guild information. Common info and stock. Excluding roster.
       "Thread": 131,
       "Torch": 1
     },
+    "roles": ["Bartender"],
     "userId": 12345678
   }
 }

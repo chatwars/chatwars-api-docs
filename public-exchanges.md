@@ -148,6 +148,7 @@ While processing this digest, you shall take into the account target customer's 
         "coat": 34,
         "helmet": 75
     },
+    "qualityCraftLevel": 2,
     "maintenanceEnabled": true,
     "maintenanceCost": 75, // 75 gold per 100 mana spent
     "guildDiscount": 15,

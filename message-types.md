@@ -435,6 +435,12 @@ _Request users stock information_
       "Thread": 131,
       "Torch": 1
     },
+    "itemCodes": {
+      "04": "Bone",
+      "06": "Charcoal",
+      "09": "Cloth"
+      // ...
+    },
     "userId": 12345678
   }
 }
@@ -486,6 +492,12 @@ _Request users guild information. Common info and stock. Excluding roster.
       "String": 4,
       "Thread": 131,
       "Torch": 1
+    },
+    "itemCodes": {
+      "04": "Bone",
+      "06": "Charcoal",
+      "09": "Cloth"
+      // ...
     },
     "roles": ["Bartender"],
     "userId": 12345678

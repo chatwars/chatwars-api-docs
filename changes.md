@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.12.3**
+- both `guildInfo` and `requestStock` responses now has `itemCodes` filed which contains codes of items that guild/user has on stock.
 ### **Version 0.12.2**
 - `roles` are added to `guildInfo`
 - `yellow_pages` now reflects the current quality craft skill level of shop

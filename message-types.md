@@ -472,7 +472,8 @@ _Request users guild information. Common info and stock. Excluding roster.
     "name": "Out Of Fuel",
     "lobby": "We hack, we slash, we duck, we dash!",
     "stockSize": 1700,
-    "stockLimit": 4000,  
+    "stockLimit": 4000,
+    "repair": false,
     "stock": {
       "Bone": 239,
       "Charcoal": 158,

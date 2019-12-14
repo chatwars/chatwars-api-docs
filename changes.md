@@ -6,6 +6,8 @@ navigation: 2
 
 
 ## Latest Changes
+### **Version 0.12.4**
+- `guildInfo` now has boolean field `repair` which reflects is the gear maintenance orders by guild members is allowed to be done using guild stock instead of their own. 
 ### **Version 0.12.3**
 - both `guildInfo` and `requestStock` responses now has `itemCodes` filed which contains codes of items that guild/user has on stock.
 ### **Version 0.12.2**

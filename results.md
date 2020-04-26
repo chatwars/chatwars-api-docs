@@ -4,8 +4,10 @@ title: Results
 navigation: 5
 ---
 
-# Results
+## Results
+
 Possible results are:
+
 - `Ok` - Everything is Ok
 - `BadAmount` - Amount is either less than or equal to zero
 - `BadCurrency` - The currency you specified is not permitted to be used in this request.
@@ -21,9 +23,10 @@ Possible results are:
 - `LevelIsLow` - The player is not a high enough level to do this action.
 - `NotInGuild` - the player is not in implied guild
 
+### Reactive Payloads
 
-## Reactive Payloads
 These errors should have some kind of system reacting to the message
+
 - `InvalidToken` - no such token, might be revoked?
 
 ```javascript
@@ -46,4 +49,3 @@ These errors should have some kind of system reacting to the message
   }
 }
 ```
-

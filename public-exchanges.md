@@ -3,11 +3,15 @@ layout: page
 title: Public Exchanges
 navigation: 3
 ---
+
 ## Public Exchanges
+
 ### deals
+
 _Would you look at all the purchases people make, which are totally not bots!_
 
 As soon as someone successfully purchases an item from the Stock Exchange, this exchange will be notified of the event.
+
 ```javascript
 {
   "sellerId": "53f3e27a124e01dcdd77de45995bf0db", // ingame userId, obtained with token
@@ -50,9 +54,11 @@ When the duel ends, the result is posted to this exchange.
 ```
 
 ### offers
+
 _Good intentions here, right guys? Guys...?_
 
 When an item becomes available for purchase on the Stock Exchange, this exchange will be notified of the event.
+
 ```javascript
 {
   "sellerId": "53f3e27a124e01dcdd77de45995bf0db",
@@ -65,9 +71,11 @@ When an item becomes available for purchase on the Stock Exchange, this exchange
 ```
 
 ### sex_digest
+
 _Arguably the least useful exchange to exist. I mean, at least theres someone using it right?_
 
 Every 5 minutes, all the cheapest offers for every item on offer in the Stock Exchange are pumped out to this exchange.
+
 ```javascript
 [
   {
@@ -100,14 +108,15 @@ Every 5 minutes, all the cheapest offers for every item on offer in the Stock Ex
       6
     ]
   },
- //....
+ // ...
 ]
 ```
 
 ### yellow_pages
-_Comes by a bit more frequently than once a year_
 
-Every 5 minutes, this exchange will receive a list of all the player shops that are open and published. 
+_Comes by a bit more frequently than once a year._
+
+Every 5 minutes, this exchange will receive a list of all the player shops that are open and published.
 
 Specialization field makes it percentagewise clear in what kind of gear this particular blacksmith is skilled in.
 
@@ -153,14 +162,16 @@ While processing this digest, you shall take into the account target customer's 
     "maintenanceCost": 75, // 75 gold per 100 mana spent
     "guildDiscount": 15,
     "castleDiscount": 7
-  }    
+  }
 ]
 ```
 
 ### au_digest
+
 _I'll buy this one and that one! Wait! Stop outbidding your own teammates!_
 
 Every 3 minutes, a list of all active and finished during last hour auction lots will be sent to this exchange.
+
 ```javascript
 [
  {
@@ -173,7 +184,7 @@ Every 3 minutes, a list of all active and finished during last hour auction lots
     "endAt": "2018-07-15T20:23:38.217Z",
     "startedAt": "2018-07-15T16:20:16.851Z",
     "buyerCastle": "🦌",
-    "status": "Active", // one of Active / Finished / Cancelled 
+    "status": "Active", // one of Active / Finished / Cancelled
     "finishedAt": "2018-07-15T16:20:16.851Z", // only for ended auctions
     "buyerName": "Shortspear", // only for finished auctions
     "price": 9,

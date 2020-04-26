@@ -5,6 +5,7 @@ navigation: 1
 ---
 
 # Chat Wars API v0.12.4
+
 Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram platform under the game bot. There are three game bots, but only two of them have an API that is publicly accessible.
 
 | Server | Description |
@@ -14,6 +15,7 @@ Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram p
 | [CW3](https://t.me/chatwarsbot) | CW3 is the most recent iteration of Chat Wars, and receives updates very soon after the international server receives an update. It has no restrictions on who can join the game, however, text is a mixture of Russian and English. This version of the game was launched in Mid 2018. |
 
 ## Abstract
+
 Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with  an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` that is running on the international server there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i`
 
 The connection url will be: `amqps://dices:[hidden]@api.chatwars.me:5673/`
@@ -35,6 +37,7 @@ There are two versions of the game with an API, and there are two versions of th
 | CW3 | amqps://api.chtwrs.com:5673 |
 
 ## FAQ
+
 Q: **Why can I not declare my queues?**
 
 A: This functionality is not permitted for security reasons. Please remove declarations in the API from your code, and simply consume from the queue.
@@ -62,11 +65,10 @@ A: You may not be connecting to the correct instance of the API! If you wish to 
 ---
 Q: **How do I obtain access to the API?**
 
-A:
-
-To access the Chat Wars API, you must first obtain a login by emailing to [The support address](mailto:support@chtwrs.freshdesk.com)
+A: To access the Chat Wars API, you must first obtain a login by emailing to [The support address](mailto:support@chtwrs.freshdesk.com)
 
 A recommended format to use (but not required) can be used to make the request more clear and simple. A sample format has been provided for you.
+
 ```plaintext
 #api
 instance: cw3/cw2/both
@@ -88,12 +90,13 @@ Default permissions:
  - read your profile information
  - read your stock info
  - to view your craft or alchemists book
- - to read your guild info (stock, lobby, etc..)
+ - to read your guild info (stock, lobby, etc...)
 
 Do you want pouch transactions enabled: yes
 ```
 
 Modification of your application can also be requested with a format similar to this:
+
 ```plaintext
 #api
 instance: cw3/cw2/both
@@ -118,9 +121,9 @@ Q: **How do I access a queue?**
 
 A: To access a queue, you must first ensure that you have had one granted. To be granted a queue, simply request a modification to your application with the additional queue added to it. After a queue has been granted to you, you can start consuming from it with `%username%_%queue%`.
 
-*Note: Failure to actually consume from your queue can result in it being revoked*
+*Note: Failure to actually consume from your queue can result in it being revoked.*
 
-*The current list of queues available can be found in [This section of the documentation](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html)*
+*The current list of queues available can be found in [This section of the documentation](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html).*
 
 ---
 Q: **I just got asked to test a feature on a "testing queue". What's that?**

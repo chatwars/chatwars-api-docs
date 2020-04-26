@@ -5,10 +5,13 @@ navigation: 4
 ---
 
 ## Message Types
+
 ### createAuthCode
+
 _Access request from your application to the user._
 
-After this command is issued, game bot will send a notification to the user containing authorization code. If one agrees to grant you access, it will pass this code to your application. 
+After this command is issued, game bot will send a notification to the user containing authorization code. If one agrees to grant you access, it will pass this code to your application.
+
 ```javascript
 // outbound queue
 {
@@ -20,6 +23,7 @@ After this command is issued, game bot will send a notification to the user cont
 ```
 
 In case of a success, your application will get following message.
+
 ```javascript
 // inbound queue
 {
@@ -33,9 +37,11 @@ In case of a success, your application will get following message.
 ```
 
 ### grantToken
+
 _Exchange auth code for access token._
 
 Having the access code, your application should obtain access token, in order to work with most of the API methods. As of now token lifetime is unlimited.
+
 ```javascript
 // outbound queue
 {
@@ -62,11 +68,13 @@ Having the access code, your application should obtain access token, in order to
 ```
 
 ### authAdditionalOperation
-_Sends request to broaden tokens operations set to user_
 
-In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user. 
+_Sends request to broaden tokens operations set to user._
+
+In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user.
 
 **NB:** Do not spam with this request or sanctions will follow.
+
 ```javascript
 // outbound queue
 {
@@ -77,6 +85,7 @@ In case your other action failed with `Forbidden` result, your application may f
   }
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -90,38 +99,43 @@ In case your other action failed with `Forbidden` result, your application may f
 ```
 
 ### grantAdditionalOperation
+
 Completes the `authAdditionalOperation` action.
+
 ```javascript
 // outbound queue
-{  
+{
   "token": "abcdefgh12345768", // target user access token
-  "action": "grantAdditionalOperation",  
-  "payload": {  
-    "requestId": "baa5u2tk324isodm85og", // requestId of parent authAdditionalOperation 
-    "authCode": "707666" // code supplied by user for this requestId  
-   }  
+  "action": "grantAdditionalOperation",
+  "payload": {
+    "requestId": "baa5u2tk324isodm85og", // requestId of parent authAdditionalOperation
+    "authCode": "707666" // code supplied by user for this requestId
+   }
 }
 ```
+
 ```javascript
 // inbound queue
-{  
-  "action": "grantAdditionalOperation",  
-  "result": "Ok",  
-  "payload": {  
-    "requestId": "baa5u2tk324isodm85og",  
-    "userId": 1234567  
-   }  
+{
+  "action": "grantAdditionalOperation",
+  "result": "Ok",
+  "payload": {
+    "requestId": "baa5u2tk324isodm85og",
+    "userId": 1234567
+   }
 }
 ```
 
 ### authorizePayment
+
 _Sends authorization request to user with confirmation code in it._
 
-After the authorizePayment command is issued the user will receive forementioned confirmation code which one should pass to the application in order to confirm his willing to transfer the gold/gold pouches to application's account. 
+After the authorizePayment command is issued the user will receive forementioned confirmation code which one should pass to the application in order to confirm his willing to transfer the gold/gold pouches to application's account.
 
 **NB:** For now the only possible currency is `pouches`
 
-**NB2:** In case of payments with gold pouches the application balance will be debited with 100 gold per pouch 
+**NB2:** In case of payments with gold pouches the application balance will be debited with 100 gold per pouch
+
 ```javascript
 // outbound queue
 {
@@ -135,26 +149,29 @@ After the authorizePayment command is issued the user will receive forementioned
   }
 }
 ```
+
 ```javascript
 // inbound queue
 {
-  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId  
+  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
   "action": "authorizePayment",
   "result": "Ok",
   "payload": {
     "fee": {
-      "gold": 4 // comission amount  
+      "gold": 4 // comission amount
     },
     "debit": {
-      "gold": 496 // the application balance amount will be debited with  
+      "gold": 496 // the application balance amount will be debited with
     },
-    "userId": 12345678 // subjects Telegram userId  
+    "userId": 12345678 // subjects Telegram userId
   }
 }
 ```
 
 ### pay
+
 _Previously, transfers held an amount of gold from users account to application's balance._
+
 ```javascript
 // outbound queue
 {
@@ -164,51 +181,54 @@ _Previously, transfers held an amount of gold from users account to application'
     "amount": {
       "pouches": 5 // payment amount
     },
-    "confirmationCode": "1234", // confirmation code, from previous authorizePayment request 
+    "confirmationCode": "1234", // confirmation code, from previous authorizePayment request
     "transactionId": "7ce30f94-3a8b-4a42-9f28-b2b1220e4a3c" // applications internal transaction id, must be unique
   }
 }
 ```
+
 ```javascript
 // inbound queue
 {
-  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId  
-  "token": "abcdef12312341234", // access token  
+  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
+  "token": "abcdef12312341234", // access token
   "action": "pay",
   "result": "Ok",
   "payload": {
     "fee": {
-      "gold": 4 // comission amount    
+      "gold": 4 // comission amount
     },
     "debit": {
-      "gold": 496 // the application balance amount will be debited with    
+      "gold": 496 // the application balance amount will be debited with
     },
-    "userId": 12345678 // subjects userId  
+    "userId": 12345678 // subjects userId
   }
 }
 ```
 
-
 ### payout
+
 _Transfers of a given amount of gold (or pouches) from the application's balance to users account._
 
 **NB:** The message will be sent in HTML parsing mode, in case of bad formatting the user will not receive any message at all. Pay attention.
 
 **NB2:** Do not abuse. Do not send links/spam/scam, otherwise your account will be blocked.
+
 ```javascript
 // outbound queue
 {
   "token": "abcdef12312341234",
   "action": "payout",
   "payload": {
-    "transactionId": "7ce30f94-3a8b-4a42-9f28-b2b1220e4a3c", // applications internal transaction id, must be unique  
+    "transactionId": "7ce30f94-3a8b-4a42-9f28-b2b1220e4a3c", // applications internal transaction id, must be unique
     "amount": {
-      "pouches": 5 // amount of gold pouches application wishes to transfer to user  
+      "pouches": 5 // amount of gold pouches application wishes to transfer to user
     },
-    "message": "You have won 500💰" // arbitrary message, limit - 100 symbols  
+    "message": "You have won 500💰" // arbitrary message, limit - 100 symbols
   }
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -222,15 +242,18 @@ _Transfers of a given amount of gold (or pouches) from the application's balance
 ```
 
 ### getInfo
+
 _Request current info about your application. E.g. balance, limits, status._
 
-Good for testing purposes. 
+Good for testing purposes.
+
 ```javascript
 // outbound queue
 {
   "action": "getInfo"
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -243,9 +266,11 @@ Good for testing purposes.
 ```
 
 ### viewCraftbook
+
 _Request the list of recipes known to user._
 
 **NB:** Requires `ViewCraftbook` operation to be allowed for token
+
 ```javascript
 // outbound queue
 {
@@ -253,6 +278,7 @@ _Request the list of recipes known to user._
   "action": "viewCraftbook"
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -284,9 +310,11 @@ _Request the list of recipes known to user._
 ```
 
 ### requestProfile
-_Request brief user profile information_
+
+_Request brief user profile information._
 
 **NB:** Requires `GetUserProfile` operation to be allowed for token
+
 ```javascript
 // outbound queue
 {
@@ -294,6 +322,7 @@ _Request brief user profile information_
   "action": "requestProfile"
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -324,11 +353,13 @@ _Request brief user profile information_
 ```
 
 ### requestBasicInfo
-_Request basic user stats_
+
+_Request basic user stats._
 
 Base attack and defence (equipment bonuses are not included) and current class.
 
 **NB:** Requires `GetBasicInfo` operation to be allowed for token
+
 ```javascript
 // outbound queue
 {
@@ -336,6 +367,7 @@ Base attack and defence (equipment bonuses are not included) and current class.
   "action": "requestBasicInfo"
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -353,11 +385,13 @@ Base attack and defence (equipment bonuses are not included) and current class.
 ```
 
 ### requestGearInfo
-_Request user's current outfit_
+
+_Request user's current outfit._
 
 Keep in mind, that slot names and their amount can be changed without any notice.
 
 **NB:** Requires `GetGearInfo` operation to be allowed for token
+
 ```javascript
 // outbound queue
 {
@@ -378,7 +412,7 @@ Keep in mind, that slot names and their amount can be changed without any notice
           "atk": 1,
           "def": 3
           },
-      "weapon": { 
+      "weapon": {
           "name": "Trollhammer",
           "stam": 10,
           "luck": 3,
@@ -389,7 +423,7 @@ Keep in mind, that slot names and their amount can be changed without any notice
           "quality": "Excellent"
       },
     "ammo": {
-       "Silver Arrows": 77  
+       "Silver Arrows": 77
     },
     "userId": 12345678
   }
@@ -397,9 +431,11 @@ Keep in mind, that slot names and their amount can be changed without any notice
 ```
 
 ### requestStock
-_Request users stock information_
+
+_Request users stock information._
 
 **NB:** Requires `GetStock` operation to be allowed for token
+
 ```javascript
 // outbound queue
 {
@@ -407,6 +443,7 @@ _Request users stock information_
   "action": "requestStock"
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -414,7 +451,7 @@ _Request users stock information_
   "result": "Ok",
   "payload": {
     "stockSize": 1700,
-    "stockLimit": 4000,  
+    "stockLimit": 4000,
     "stock": {
       "Bone": 239,
       "Charcoal": 158,
@@ -447,9 +484,11 @@ _Request users stock information_
 ```
 
 ### guildInfo
-_Request users guild information. Common info and stock. Excluding roster.
+
+_Request users guild information. Common info and stock. Excluding roster._
 
 **NB:** Requires `GuildInfo` operation to be allowed for token
+
 ```javascript
 // outbound queue
 {
@@ -457,6 +496,7 @@ _Request users guild information. Common info and stock. Excluding roster.
   "action": "guildInfo"
 }
 ```
+
 ```javascript
 // inbound queue
 {
@@ -507,20 +547,23 @@ _Request users guild information. Common info and stock. Excluding roster.
 ```
 
 ### wantToBuy
-_Issues an wtb order on behalf of user_
+
+_Issues an wtb order on behalf of user._
+
 ```javascript
 // outbound queue
 {
   "token": "abcdef12312341234",
   "action": "wantToBuy",
   "payload": {
-    "itemCode": "20", // the code of an item 
+    "itemCode": "20", // the code of an item
     "quantity": 5,
     "price": 5, // desired price
     "exactPrice": true // try to buy exactly for given price, fail otherwise
   }
 }
 ```
+
 ```javascript
 // inbound queue
 {

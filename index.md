@@ -4,7 +4,7 @@ title: Overview
 navigation: 1
 ---
 
-# Chat Wars API v0.12.4
+# Chat Wars API v1.0.0
 
 Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram platform under the game bot. There are three game bots, but only two of them have an API that is publicly accessible.
 
@@ -20,16 +20,15 @@ Interaction is done via AMQP (by rabbitMQ). Application should publish a message
 
 The connection url will be: `amqps://dices:[hidden]@api.chatwars.me:5673/`
 
-Apart from that, there is a set of public fan-out read-only exchanges, where you have your own queue (if requested) and can start receiving updates. The names of this queues have format `%username%_%exchangename%`
-(e.g. `dices_deals`)
+Public exchanges, however are served by the Kafka server which can be found at `digest-api.chtwrs.com:9092`. The topic names has`cw2-` and `cw3-` prefixes for international and cw3 instances respectively. The suffixes of topics can be found in corresponding [article](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html).
 
-For now all queues are limited in size by 1Mb, with discard-oldest policy. 
+For now all those topics have the retention configured to 1 month, which means there is only one month of data available.
 
-Please note, that at this moment, API is highly unstable.
+Please note, that at this moment, API is mildly unstable.
 
 ### Connection
 
-There are two versions of the game with an API, and there are two versions of the API. Refer to this table for what API to connect to. Be aware that an app will not automatically have the same access to both APIs, and you must request access to each API seperately.
+There are two versions of the game with an API, and there are two versions of the API. Refer to this table for what API to connect to. Be aware, an app will not automatically have the same access to both APIs, and you must request access to each API separately.
 
 | Server | URL |
 | --- | --- |
@@ -76,12 +75,6 @@ name of application: my amazing application
 purpose: Make the players have an amazing experience
 my telegram name: `@durov`
 
-Requested queues:
-sex_digest
-deals
-offers
-yellow_pages
-au_digest
 
 Default permissions:
  - request valuables transfer from you
@@ -103,10 +96,6 @@ instance: cw3/cw2/both
 Request of modification to my app:
 name of application: my amazing application
 
-Queues:
-remove yellow_pages
-add deals
-
 Default Permissions:
 remove - request valuables transfer from you
 remove - transfer valuables to you
@@ -115,15 +104,6 @@ add - read your stock info
 
 Access to pouch transactions: removed
 ```
-
----
-Q: **How do I access a queue?**
-
-A: To access a queue, you must first ensure that you have had one granted. To be granted a queue, simply request a modification to your application with the additional queue added to it. After a queue has been granted to you, you can start consuming from it with `%username%_%queue%`.
-
-*Note: Failure to actually consume from your queue can result in it being revoked.*
-
-*The current list of queues available can be found in [This section of the documentation](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html).*
 
 ---
 Q: **I just got asked to test a feature on a "testing queue". What's that?**

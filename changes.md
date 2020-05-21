@@ -6,6 +6,9 @@ navigation: 2
 
 ## Latest Changes
 
+### **Version 1.0.0**
+- AMQP public exchanges are *DEPRECATED* in favor of Kafka. They will be removed in a near future. No new queues will be created whatsoever. The scheme left unchanged.
+
 ### **Version 0.12.4**
 
 - `guildInfo` now has boolean field `repair` which reflects is the gear maintenance orders by guild members is allowed to be done using guild stock instead of their own.

@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Public Exchanges
+title: Public Exchange Suffixes
 navigation: 3
 ---
 
-## Public Exchanges
+## Public Exchange Suffixes
 
 ### deals
 

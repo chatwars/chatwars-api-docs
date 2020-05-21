@@ -10,4 +10,4 @@ kramdown:
 exclude:
   - README.md
 
-theme: jekyll-theme-merlot
+theme: jekyll-theme-midnight

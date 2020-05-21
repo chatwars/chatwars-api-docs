@@ -22,7 +22,7 @@ The connection url will be: `amqps://dices:[hidden]@api.chatwars.me:5673/`
 
 Public exchanges, however are served by the Kafka server which can be found at `digest-api.chtwrs.com:9092`. The topic names has`cw2-` and `cw3-` prefixes for international and cw3 instances respectively. The suffixes of topics can be found in corresponding [article](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html).
 
-For now all those topics have the retention configured to 1 month, which means there is only one month of data is available.
+For now all those topics have the retention configured to 1 month, which means there is only one month of data available.
 
 Please note, that at this moment, API is mildly unstable.
 

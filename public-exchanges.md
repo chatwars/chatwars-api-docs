@@ -4,7 +4,7 @@ title: Public Exchanges
 navigation: 3
 ---
 
-## Public Exchanges
+## Public Exchanges Suffixes
 
 ### deals
 

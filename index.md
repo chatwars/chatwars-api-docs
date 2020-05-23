@@ -16,11 +16,11 @@ Documentation for Chat Wars API. Chat Wars is an MMORPG hosted on the Telegram p
 
 ## Abstract
 
-Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with  an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` that is running on the international server there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i`
+Interaction is done via AMQP (by rabbitMQ). Application should publish a message to the appropriate exchange with an appropriate routing key, and then, listen for and react to incoming messages in its queue. E.g. for the application named `dices` that is running on the international server there would a be direct exchange named `dices_ex`, routing key `dices_o` and an inbound queue `dices_i`.
 
 The connection url will be: `amqps://dices:[hidden]@api.chatwars.me:5673/`
 
-Public exchanges, however are served by the Kafka server which can be found at `digest-api.chtwrs.com:9092`. The topic names has`cw2-` and `cw3-` prefixes for international and cw3 instances respectively. The suffixes of topics can be found in corresponding [article](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html).
+Public exchanges, however are served by the Kafka server which can be found at `digest-api.chtwrs.com:9092`. The topic names has `cw2-` and `cw3-` prefixes for international and cw3 instances respectively. The names of topics can be found in corresponding [article](https://chatwars.github.io/chatwars-api-docs/public-exchanges.html).
 
 For now all those topics have the retention configured to 1 month, which means there is only one month of data available.
 

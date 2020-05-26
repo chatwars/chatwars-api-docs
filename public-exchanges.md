@@ -129,6 +129,7 @@ While processing this digest, you shall take into the account target customer's 
   {
     "link": "UQ5DX",
     "name": "Studio",
+    "ownerTag": "TAG",
     "ownerName": "WolperTinger",
     "ownerCastle": "🦌",
     "kind": "⚒",
@@ -179,6 +180,7 @@ Every 3 minutes, a list of all active and finished during last hour auction lots
  {
     "lotId": "71499",
     "itemName": "Hunter dagger",
+    "sellerTag": "POK",
     "sellerName": "E them Up",
     "quality": "Fine",
     "sellerCastle": "🦌",
@@ -188,6 +190,7 @@ Every 3 minutes, a list of all active and finished during last hour auction lots
     "buyerCastle": "🦌",
     "status": "Active", // one of Active / Finished / Cancelled
     "finishedAt": "2018-07-15T16:20:16.851Z", // only for ended auctions
+    "buyerTag": "IAM", // only for finished auctions
     "buyerName": "Shortspear", // only for finished auctions
     "price": 9,
     "stats" : {
@@ -200,6 +203,7 @@ Every 3 minutes, a list of all active and finished during last hour auction lots
     "itemName": "📗Scroll of Peace",
     "sellerName": "kritik",
     "sellerCastle": "🌑",
+    "sellerTag": "BAG",
     "endAt": "2018-07-16T04:36:15.183Z",
     "startedAt": "2018-07-15T16:34:50.722Z",
     "buyerCastle": "🌑",
@@ -208,6 +212,7 @@ Every 3 minutes, a list of all active and finished during last hour auction lots
   {
     "lotId": "71501",
     "itemName": "📘Scroll of Peace",
+    "sellerTag": "JNJ",
     "sellerName": "BandYlly",
     "sellerCastle": "🦌",
     "endAt": "2018-07-15T20:36:10.675Z",

@@ -5,6 +5,8 @@ navigation: 2
 ---
 
 ## Latest Changes
+### **Version 1.0.1**
+- user tags are added to `au_digest` and `yellow_pages` 
 
 ### **Version 1.0.0**
 - AMQP public exchanges are *DEPRECATED* in favor of Kafka. They will be removed in a near future. No new queues will be created whatsoever. The scheme left unchanged.

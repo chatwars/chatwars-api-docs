@@ -1,10 +1,12 @@
 ---
 layout: page
-title: Public Exchange Suffixes
+title: Public Exchange Topics
 navigation: 3
 ---
 
-## Public Exchange Suffixes
+## Public Exchange Topics
+
+> **Note!** Only topic names are listed here. You must specify a prefix for the full topic name like `cw2-deals`.
 
 ### deals
 

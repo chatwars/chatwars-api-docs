@@ -8,20 +8,23 @@ navigation: 5
 
 Possible results are:
 
-- `Ok` - Everything is Ok
-- `BadAmount` - Amount is either less than or equal to zero
-- `BadCurrency` - The currency you specified is not permitted to be used in this request.
-- `BadFormat` - Message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane
-- `ActionNotFound` - the action you have requested is absent. Check spelling
-- `NoSuchUser` - UserID is wrong, or user became inactive
-- `NotRegistered` - Your app is not yet registered. You must request access to this feature separately.
-- `InvalidCode` - Authorization code is incorrect
-- `NoSuchOperation` - Requested operation not exists
+- `Ok` - everything is Ok
+- `BadAmount` - amount is either less than or equal to zero
+- `BadCurrency` - the currency you specified is not permitted to be used in this request
+- `BadFormat` - message format is bad. It could be an invalid javascript, or types are wrong, or not all fields are sane.
+- `ActionNotFound` - the action you have requested is absent. Check spelling.
+- `NoSuchUser` - userID is wrong, or user became inactive
+- `NotRegistered` - your app is not yet registered. You must request access to this feature separately.
+- `InvalidCode` - authorization code is incorrect
+- `NoSuchOperation` - requested operation not exists
 - `TryAgain` - if we have some technical difficulties, or bug and are willing for you to repeat request
 - `AuthorizationFailed` - some field of transaction is bad or confirmation code is wrong
 - `InsufficientFunds` - the player or application balance is insufficient
-- `LevelIsLow` - The player is not a high enough level to do this action.
+- `LevelIsLow` - the player is not a high enough level to do this action
 - `NotInGuild` - the player is not in implied guild
+- `NoOffersFoundByPrice` - there are no offers on the market or the price is too low. Are you sure you need the `exactPrice` parameter?
+- `UserIsBusy` - the player is busy with something that prevents him to execute requested action
+- `BattleIsNear` - if you look at the clock there are only a few minutes left before the battle
 
 ### Reactive Payloads
 

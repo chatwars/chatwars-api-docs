@@ -5,6 +5,10 @@ navigation: 2
 ---
 
 ## Latest Changes
+### **Version 1.1.1**
+- `requestProfile` now reflects secondary class info, if present.
+- BugFix: Now user profile contains exact the same points that is showed in in-game Profile. 
+
 ### **Version 1.0.1**
 - user tags are added to `au_digest` and `yellow_pages` 
 

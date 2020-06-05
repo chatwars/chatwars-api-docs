@@ -333,6 +333,10 @@ _Request brief user profile information._
       "atk": 78,
       "castle": "🦌",
       "class": "⚒",
+      "secondaryClass": {
+        "class": "📦",
+        "lvl": 88
+      },
       "def": 145,
       "hp": 122,
       "maxHp": 1377,

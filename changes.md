@@ -5,6 +5,9 @@ navigation: 2
 ---
 
 ## Latest Changes
+### **Version 1.1.2**
+- specialization details now reflected at `yellow_pages`
+
 ### **Version 1.1.1**
 - `requestProfile` now reflects secondary class info, if present.
 - BugFix: Now user profile contains exact the same points that is showed in in-game Profile. 

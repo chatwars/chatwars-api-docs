@@ -160,6 +160,24 @@ While processing this digest, you shall take into the account target customer's 
         "coat": 34,
         "helmet": 75
     },
+    specializations: {
+      "quality_craft": {
+          "level": 6,
+          "values": {
+            "armor": 77,
+            "helmet": 88
+            //...etc
+          }
+      },
+      "alchemy": {
+          "level": 5,
+          "values": {
+            "apothecary": 77,
+            "dreamweaving": 88,
+            //... etc
+          }
+      }
+    },
     "qualityCraftLevel": 2,
     "maintenanceEnabled": true,
     "maintenanceCost": 75, // 75 gold per 100 mana spent

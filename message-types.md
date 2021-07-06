@@ -346,6 +346,8 @@ _Request brief user profile information._
       "guild_tag": "NaN",
       "guild_emoji": "👬",
       "lvl": 35,
+      "status": "Busy",
+      "action": "Quest",      
       "mana": 880,
       "pouches": 10,
       "stamina": 4,

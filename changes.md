@@ -5,6 +5,10 @@ navigation: 2
 ---
 
 ## Latest Changes
+### **Version 1.1.3**
+- added user status and current action to GetUserProfile
+- added userId in payload of response with 'NotInGuild' error
+
 ### **Version 1.1.2**
 - specialization details now reflected at `yellow_pages`
 

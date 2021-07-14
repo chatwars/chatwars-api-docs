@@ -27,7 +27,6 @@ In case of a success, your application will get following message.
 ```javascript
 // inbound queue
 {
-  "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
   "action": "createAuthCode",
   "result": "Ok",
   "payload": {
@@ -60,7 +59,7 @@ Having the access code, your application should obtain access token, in order to
   "action": "grantToken",
   "result": "Ok",
   "payload": {
-    "userId": 1234567, // telegram user id
+    "userId": 1234567, // subjects Telegram userId
     "id": "53f3e27a124e01dcdd77de45995bf0db", // in-game user id
     "token": "abcdefgh12345768" // access token to be used further
   }
@@ -90,6 +89,7 @@ In case your other action failed with `Forbidden` result, your application may f
 // inbound queue
 {
   "uuid": "baa5u2tk324isodm85og",
+  "action": "authAdditionalOperation",
   "result": "Ok",
   "payload": {
     "operation": "GetUserProfile",
@@ -157,12 +157,13 @@ After the authorizePayment command is issued the user will receive forementioned
   "action": "authorizePayment",
   "result": "Ok",
   "payload": {
-    "fee": {
-      "gold": 4 // comission amount
-    },
     "debit": {
       "gold": 496 // the application balance amount will be debited with
     },
+    "fee": {
+      "gold": 4 // comission amount
+    },
+    "transactionId": "7ce30f94-3a8b-4a42-9f28-b2b1220e4a3c",
     "userId": 12345678 // subjects Telegram userId
   }
 }
@@ -191,16 +192,16 @@ _Previously, transfers held an amount of gold from users account to application'
 // inbound queue
 {
   "uuid": "b9qvvgtk324j2d8gdqjg", // request correlationId
-  "token": "abcdef12312341234", // access token
   "action": "pay",
   "result": "Ok",
   "payload": {
-    "fee": {
-      "gold": 4 // comission amount
-    },
     "debit": {
       "gold": 496 // the application balance amount will be debited with
     },
+    "fee": {
+      "gold": 4 // comission amount
+    },
+    "transactionId": "7ce30f94-3a8b-4a42-9f28-b2b1220e4a3c",
     "userId": 12345678 // subjects userId
   }
 }

@@ -160,7 +160,7 @@ While processing this digest, you shall take into the account target customer's 
         "coat": 34,
         "helmet": 75
     },
-    specializations: {
+    "specializations": {
       "quality_craft": {
           "level": 6,
           "values": {

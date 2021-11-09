@@ -73,6 +73,15 @@ _Sends request to broaden tokens operations set to user._
 
 In case your other action failed with `Forbidden` result, your application may fire this action to ask it from user.
 
+Available permissions:
+* `GetBasicInfo`
+* `GetUserProfile`
+* `ViewCraftbook`
+* `GetGearInfo`
+* `GetStock`
+* `GuildInfo`
+* `TradeTerminal`
+
 **NB:** Do not spam with this request or sanctions will follow.
 
 ```javascript
@@ -555,6 +564,8 @@ _Request users guild information. Common info and stock. Excluding roster._
 ### wantToBuy
 
 _Issues an wtb order on behalf of user._
+
+**NB:** Requires `TradeTerminal` operation to be allowed for token
 
 ```javascript
 // outbound queue

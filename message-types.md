@@ -94,11 +94,12 @@ Available permissions:
   }
 }
 ```
-
+b'{"uuid":"c6eeqgtog3cfgvabvacg","action":"authAdditionalOperation","result":"Ok","payload":{"operation":"ViewCraftbook","userId":596716286}}'
 ```javascript
 // inbound queue
 {
   "uuid": "baa5u2tk324isodm85og",
+  "action": "authAdditionalOperation",
   "result": "Ok",
   "payload": {
     "operation": "GetUserProfile",

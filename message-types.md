@@ -422,24 +422,75 @@ Keep in mind, that slot names and their amount can be changed without any notice
   "action": "requestGearInfo",
   "result": "Ok",
   "payload": {
+    "gear": {
+      "amulet": "🐢Gold Cancer amulet",
+      "body": "⚡+3 Clarity Robe",
+      "coat": "Royal Guard Cape",
+      "feet": "⚡+3 Clarity Shoes",
+      "hands": "⚡+3 Clarity Bracers",
+      "head": "⚡+3 Clarity Circlet",
+      "offhand": "⚡+3 Hunter dagger",
+      "ring": "🐢Gold Sagittarius ring",
+      "weapon": "⚡+3 Champion Sword"
+    },
     "gearInfo": {
-      "head": {
-          "name": "Steel Helmet",
-          "atk": 1,
-          "def": 3
-          },
-      "weapon": {
-          "name": "Trollhammer",
-          "stam": 10,
-          "luck": 3,
-          "atk": 87,
-          "def": 113,
-          "loot": 3,
-          "condition": "Normal",
-          "quality": "Excellent"
+      "amulet": {
+        "name": "🐢Gold Cancer amulet"
       },
-    "ammo": {
-       "Silver Arrows": 77
+      "body": {
+        "atk": 9,
+        "condition": "Normal",
+        "def": 28,
+        "mana": 160,
+        "name": "⚡+3 Clarity Robe",
+        "quality": "Masterpiece"
+      },
+      "coat": {
+        "atk": 1,
+        "def": 1,
+        "name": "Royal Guard Cape"
+      },
+      "feet": {
+        "atk": 6,
+        "condition": "Normal",
+        "def": 17,
+        "mana": 80,
+        "name": "⚡+3 Clarity Shoes",
+        "quality": "Masterpiece"
+      },
+      "hands": {
+        "atk": 6,
+        "condition": "Normal",
+        "def": 17,
+        "mana": 80,
+        "name": "⚡+3 Clarity Bracers",
+        "quality": "Masterpiece"
+      },
+      "head": {
+        "atk": 7,
+        "condition": "Normal",
+        "def": 20,
+        "mana": 120,
+        "name": "⚡+3 Clarity Circlet",
+        "quality": "Masterpiece"
+      },
+      "offhand": {
+        "atk": 21,
+        "condition": "Normal",
+        "def": 5,
+        "name": "⚡+3 Hunter dagger",
+        "quality": "Masterpiece"
+      },
+      "ring": {
+        "name": "🐢Gold Sagittarius ring"
+      },
+      "weapon": {
+        "atk": 42,
+        "condition": "Normal",
+        "def": 5,
+        "name": "⚡+3 Champion Sword",
+        "quality": "Masterpiece"
+      }
     },
     "userId": 12345678
   }

@@ -406,6 +406,8 @@ _Request user's current outfit._
 
 Keep in mind, that slot names and their amount can be changed without any notice.
 
+If some slot is not equipped, the corresponding field will not be sent.
+
 **NB:** Requires `GetGearInfo` operation to be allowed for token
 
 ```javascript
@@ -475,21 +477,16 @@ Keep in mind, that slot names and their amount can be changed without any notice
         "quality": "Masterpiece"
       },
       "offhand": {
-        "atk": 21,
-        "condition": "Normal",
-        "def": 5,
+        "atk": 1,
+        "condition": "Broken",
         "name": "⚡+3 Hunter dagger",
-        "quality": "Masterpiece"
       },
       "ring": {
         "name": "🐢Gold Sagittarius ring"
       },
       "weapon": {
-        "atk": 42,
-        "condition": "Normal",
-        "def": 5,
-        "name": "⚡+3 Champion Sword",
-        "quality": "Masterpiece"
+        "atk": 31,
+        "name": "Champion Sword",
       }
     },
     "userId": 12345678

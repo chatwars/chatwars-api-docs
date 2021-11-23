@@ -94,7 +94,7 @@ Available permissions:
   }
 }
 ```
-b'{"uuid":"c6eeqgtog3cfgvabvacg","action":"authAdditionalOperation","result":"Ok","payload":{"operation":"ViewCraftbook","userId":596716286}}'
+
 ```javascript
 // inbound queue
 {
